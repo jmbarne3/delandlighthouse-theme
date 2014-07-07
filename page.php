@@ -29,11 +29,7 @@ get_header();
 					</article><!-- #post-<?php the_ID(); ?> -->
 
 					<?php
-					comments_template( '', true );
 				endwhile;
-				?>
-				<?php
-					
 				?>
 			</div>
 			<?php //get_sidebar(); ?>

@@ -28,10 +28,6 @@ $bavotasan_theme_options = bavotasan_theme_options();
 					</a>
 				</div><!-- .col-lg-3 -->
 				<div class="col-lg-3">
-					<h5>Map</h5>
-					<?php echo do_shortcode('[map zoom="15"]1525 South State Road 15-A DeLand, Florida 32720[/map]'); ?>
-				</div>
-				<div class="col-lg-3">
 					<h5>Contact Us</h5>
 					<?php echo do_shortcode("[proper_contact_form]"); ?>
 				</div>
