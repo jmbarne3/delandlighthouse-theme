@@ -73,3 +73,63 @@ Text Domain:	arcade
 #footer h5 {
 	color: White;
 }
+
+.quote {
+  text-align: center;
+  font-style: italic;
+}
+
+.author
+{
+  text-align:right;
+}
+
+.announcement
+{
+  list-style: none;
+}
+
+.announcement > a {
+  color: Black;
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+.announcement a:hover, .announcement a:focus{
+  color: #FFA500;
+  text-decoration: none;
+  font-size:0.8em;
+}
+
+.announcement-item {
+  background-color: rgba(43, 49, 63, 0.05);
+  padding: 0.45em;
+  border-radius: 0.45em;
+  margin-bottom: 2.0em;
+}
+
+.announcement-item h4{
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.home-widget {
+  margin: 0px 0px 30px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.home-widget-title
+{
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.events-space {
+  background-color: rgba(43, 49, 63, 0.05);
+  padding: 0.45em;
+  border-radius: 0.45em;
+  margin-bottom: 2.0em;
+}

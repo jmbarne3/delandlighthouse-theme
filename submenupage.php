@@ -46,7 +46,7 @@ get_header();
                                         </article><!-- #post-<?php the_ID(); ?> -->
 
                                         <?php
-                                        comments_template( '', true );
+                                        //comments_template( '', true );
                                 endwhile;
                                 ?>
 			</div>
