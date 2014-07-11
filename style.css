@@ -84,18 +84,18 @@ Text Domain:	arcade
   text-align:right;
 }
 
-.announcement
+.announcement-front-page
 {
   list-style: none;
 }
 
-.announcement > a {
+.announcement-front-page a {
   color: Black;
   text-decoration: none;
   font-size: 0.8em;
 }
 
-.announcement a:hover, .announcement a:focus{
+.announcement-front-page a:hover, .announcement a:focus{
   color: #FFA500;
   text-decoration: none;
   font-size:0.8em;
