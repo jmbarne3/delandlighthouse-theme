@@ -282,7 +282,7 @@ if ( ! function_exists('create_leader_post_type') ) {
 			'show_in_admin_bar' => true,
 			'menu_position' => 6,
 			'can_export' => true,
-			'has_archive' => false,
+			'has_archive' => true,
 			'capability_type' => 'page',
 		);
 

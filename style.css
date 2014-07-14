@@ -145,3 +145,14 @@ Text Domain:	arcade
 .nav-pills > li > a {
   padding: 10px 15px 10px 30px;
 }
+
+.church-leaders > p.excerpt {
+	font-size: 1.2em;
+	margin-top: 0.5em;
+}
+
+.bible-study-sidebar {
+  background-color: rgba(43, 49, 63, 0.05);
+  padding: 1.0em;
+  border-radius: 0.45em;
+}
