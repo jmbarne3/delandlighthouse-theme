@@ -25,8 +25,8 @@ get_header();
 								<div class="row">
 									<h2>Announcements</h2>
 									<?php 
-										$today = date('Ymd');
-										$post_args = array('post_type' => 'announcement', 'meta_query' => array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today));
+										$today = current_time('mysql');
+										$post_args = array('post_type' => 'announcement', 'meta_query' => array ( array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today, 'type' => 'date')));
 
 										$loop = new WP_Query($post_args);
 
@@ -35,6 +35,11 @@ get_header();
 											<div class="col-md-6">
 												<div class="announcement-item">
 													<h4><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h4>
+													<?php 
+														$image = get_field('banner_image');
+														if ( !empty($image)): ?>
+															<img class="img-rounded" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+													<?php endif; ?>
 													<p><?php the_excerpt(); ?></p>
 												</div>
 											</div>

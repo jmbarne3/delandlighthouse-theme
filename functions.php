@@ -47,7 +47,7 @@ function create_announcement_post_type() {
 		'label'               => 'announcement',
 		'description'         => 'Announcements that are not tied to a specific event.',
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'excerpt', 'custom-fields', 'post-formats', ),
+		'supports'            => array( 'title', 'editor', 'excerpt', 'custom-fields', 'post-formats', 'featured-image', ),
 		'taxonomies'          => array( 'category', 'post_tag' ),
 		'hierarchical'        => false,
 		'public'              => true,
@@ -243,5 +243,106 @@ function register_announcement_widget() {
 }
 
 add_action('widgets_init', 'register_announcement_widget');
+
+if ( ! function_exists('create_leader_post_type') ) {
+	function create_leader_post_type() {
+		$labels = array (
+			'name' => 'Leaders',
+			'singular_name' => 'Leader',
+			'menu_name' => 'Leaders',
+			'parent_item_color' => 'Parent Item:',
+			'all_items' => 'All Items',
+			'view_item' => 'View Item',
+			'add_new_item' => 'New Leader',
+			'add_new' => 'Add New',
+			'edit_item' => 'Edit Leader',
+			'update_item' => 'Update Leader',
+			'search_items' => 'Search Leaders',
+			'not_found' => 'Not found',
+			'not_found_in_trash' => 'Not found in Trash',
+		);
+
+		$rewrite = array(
+			'slug' => 'church-leaders',
+			'with_front' => true,
+			'pages' => true,
+			'feeds' => false,
+		);
+		$args = array (
+			'label' => 'church-leaders',
+			'description' => 'Church Leaders',
+			'labels' => $labels,
+			'supports' => array('title', 'editor', 'custom-fields', 'post-formats', ),
+			'taxonomies' => array ('category'),
+			'hierarchical' => false,
+			'public' => true,
+			'show_ui' => true,
+			'show_in_menu' => true,
+			'show_in_nav_menus' => true,
+			'show_in_admin_bar' => true,
+			'menu_position' => 6,
+			'can_export' => true,
+			'has_archive' => false,
+			'capability_type' => 'page',
+		);
+
+		register_post_type('church-leaders', $args);
+	}
+}
+
+add_action('init', 'create_leader_post_type', 0);
+
+if ( ! function_exists('create_bible_study_post_type') ) {
+
+// Register Custom Post Type
+function create_bible_study_post_type() {
+
+
+        $labels = array(
+                'name'                => 'Bible Studies',
+                'singular_name'       => 'Bible Study',
+                'menu_name'           => 'Bible Studies',
+                'parent_item_colon'   => 'Parent Item:',
+                'all_items'           => 'All Items',
+                'view_item'           => 'View Item',
+                'add_new_item'        => 'New Bible Study',
+                'add_new'             => 'Add New',
+                'edit_item'           => 'Edit Item',
+                'update_item'         => 'Update Item',
+                'search_items'        => 'Search Bible Studies',
+                'not_found'           => 'Not found',
+                'not_found_in_trash'  => 'Not found in Trash',
+        );
+        $rewrite = array(
+                'slug'                => 'bible-studies',
+                'with_front'          => true,
+                'pages'               => true,
+                'feeds'               => true,
+        );
+        $args = array(
+                'label'               => 'bible-studies',
+                'description'         => 'Bible Studies',
+                'labels'              => $labels,
+                'supports'            => array( 'title', 'editor', 'excerpt', 'custom-fields', 'post-formats', ),
+                'taxonomies'          => array( 'category', 'post_tag' ),
+                'hierarchical'        => false,
+                'public'              => true,
+                'show_ui'             => true,
+                'show_in_menu'        => true,
+                'show_in_nav_menus'   => true,
+                'show_in_admin_bar'   => true,
+                'menu_position'       => 5,
+                'can_export'          => true,
+                'has_archive'         => true,
+                'exclude_from_search' => false,
+                'publicly_queryable'  => true,
+                'rewrite'             => $rewrite,
+                'capability_type'     => 'page',
+        );
+        register_post_type( 'bible-studies', $args );
+
+	}
+}
+add_action('init', 'create_bible_study_post_type', 0);
 
 ?>
