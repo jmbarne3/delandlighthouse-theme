@@ -133,3 +133,15 @@ Text Domain:	arcade
   border-radius: 0.45em;
   margin-bottom: 2.0em;
 }
+
+.nav-pills > li:first-child > a {
+  padding: 10px 15px;
+}
+
+.nav-pills > li.active:first-child > a {
+  background-color: #428bca;
+}
+
+.nav-pills > li > a {
+  padding: 10px 15px 10px 30px;
+}

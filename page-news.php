@@ -25,7 +25,9 @@ get_header();
 								<div class="row">
 									<h2>Announcements</h2>
 									<?php 
-										$post_args = array('post_type' => 'announcement', );
+										$today = date('Ymd');
+										$post_args = array('post_type' => 'announcement', 'meta_query' => array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today));
+
 										$loop = new WP_Query($post_args);
 
 										if ($loop->have_posts()){
