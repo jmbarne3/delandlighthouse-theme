@@ -345,4 +345,16 @@ function create_bible_study_post_type() {
 }
 add_action('init', 'create_bible_study_post_type', 0);
 
+function myFeedFilter($query) {
+	if ($query->is_feed) {
+		if (isset($_GET['post_type'])) {
+			$post_types = explode(',', $_GET['post_type']);
+			$query->set('post_type', $post_types);
+		}
+	}
+	return $query;
+}
+
+add_filter('pre_get_posts', 'myFeedFilter');
+
 ?>

@@ -56,7 +56,7 @@ get_header();
 										<h3>Upcoming Community Events</h3>
 										<div class="events-space">
 											<?php  echo do_shortcode('[events_list limit="5" scope="future" category=14]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
-											<a href="/events/">See More</a>
+											<a href="/events/categories/community-events/">See More</a>
 										</div>
 									</div>
 								</div>

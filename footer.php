@@ -13,7 +13,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
 	<footer id="footer" role="contentinfo">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					<h5>Address</h5>
 					<address>
 						<a href='<?php echo (get_option('qs_contact_email')); ?>'>
@@ -27,17 +27,17 @@ $bavotasan_theme_options = bavotasan_theme_options();
 						<?php echo (get_option('qs_contact_phone')); ?>
 					</a>
 				</div><!-- .col-lg-3 -->
-				<div class="col-lg-3">
-					<h5>Contact Us</h5>
-					<?php echo do_shortcode("[proper_contact_form]"); ?>
-				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					<h5>Social Media</h5>
 					<div class='btn-group'>
 						<a class="btn" style='padding: 0' href='<?php echo(get_option('qs_contact_facebook')); ?>' target="_blank"/><img src='<?php echo (get_option('qs_contact_facebook_icon')); ?>' alt='facebook' /></a>
 						<a class="btn" style='padding: 0' href='<?php echo (get_option('qs_contact_youtube')); ?>' target="_blank"/><img src='<?php echo (get_option('qs_contact_youtube_icon')); ?>' alt='youtube' /></a>
 					</div>
-				</div><!--.col-lg-3-->
+				</div><!--.col-lg-3-->	
+				<div class="col-lg-4">
+					<h5>Contact Us</h5>
+					<?php echo do_shortcode("[proper_contact_form]"); ?>
+				</div>
 			</div><!-- .row -->
 		</div><!-- #footer-content.container -->
 	</footer><!-- #footer -->
