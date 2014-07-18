@@ -21,6 +21,11 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <!--[if IE]><script src="<?php echo BAVOTASAN_THEME_URL; ?>/library/js/html5.js"></script><![endif]-->
 <?php wp_head(); ?>
+<?php if ($post->post_name == 'history') {?>
+<link rel="stylesheet" type="text/css" href="http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
+<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js"></script>
+<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
+<?php } ?>
 </head>
 <?php
 $bavotasan_theme_options = bavotasan_theme_options();
@@ -50,7 +55,7 @@ $space_class = '';
 					?>
 				</div>
 			</nav><!-- #site-navigation -->
-
+			<?php if ($post->post_name == 'history') { } else { ?>
 			 <div class="title-card-wrapper">
                 <div class="title-card">
     				<div id="site-meta">
@@ -78,6 +83,8 @@ $space_class = '';
 				</div>
 			</div>
 
+<?php } ?>
 		</header>
 
 		<main>
+

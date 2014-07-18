@@ -72,7 +72,7 @@ get_header();
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Upcoming Men Events</h3>
-										<div class="event-space">
+										<div class="events-space">
 											<?php  echo do_shortcode('[events_list limit="5" scope="future" category=16]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
 											<a href="/events/categories/men-events/">See More</a>
 										</div>
@@ -81,9 +81,17 @@ get_header();
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Upcoming Women Events</h3>
-										<div class="event-space">
+										<div class="events-space">
 											<?php  echo do_shortcode('[events_list limit="5" scope="future" category=17]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
 											<a href="/events/categories/women-events/">See More</a>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<h3>Bible Studies This Week</h3>
+										<div class="events-space">
+											<?php echo do_shortcode('[events_list limit="5" scope="this-week" category=21]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]'); ?>
 										</div>
 									</div>
 								</div>

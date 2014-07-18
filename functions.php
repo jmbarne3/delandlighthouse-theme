@@ -345,6 +345,55 @@ function create_bible_study_post_type() {
 }
 add_action('init', 'create_bible_study_post_type', 0);
 
+// Register Timeline-Event Custom Post Type
+if ( ! function_exists('create_timeline_event_post_type') ) {
+
+// Register Custom Post Type
+function create_timeline_event_post_type() {
+
+	$labels = array(
+		'name'                => _x( 'Timeline Events', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Timeline Event', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Timeline Events', 'text_domain' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
+		'all_items'           => __( 'All Timeline Events', 'text_domain' ),
+		'view_item'           => __( 'View Timeline Event', 'text_domain' ),
+		'add_new_item'        => __( 'Add New Timeline Event', 'text_domain' ),
+		'add_new'             => __( 'Add New Timeline Event', 'text_domain' ),
+		'edit_item'           => __( 'Edit Timeline Event', 'text_domain' ),
+		'update_item'         => __( 'Update Timeline Event', 'text_domain' ),
+		'search_items'        => __( 'Search Timeline Events', 'text_domain' ),
+		'not_found'           => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+	);
+	$args = array(
+		'label'               => __( 'timeline_event', 'text_domain' ),
+		'description'         => __( 'Events that show up on the history timeline.', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'rewrite'             => false,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'timeline_event', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'create_timeline_event_post_type', 0 );
+
+}
+
 function myFeedFilter($query) {
 	if ($query->is_feed) {
 		if (isset($_GET['post_type'])) {
@@ -356,5 +405,15 @@ function myFeedFilter($query) {
 }
 
 add_filter('pre_get_posts', 'myFeedFilter');
+
+add_filter( 'em_events_build_sql_conditions', 'my_em_scope_conditions',1,2);
+function my_em_scope_conditions($conditions, $args){
+	if( !empty($args['scope']) && $args['scope'] == 'this-week' ){
+		$start_date = date('Y-m-d', strtotime('Last Monday', time()));
+		$end_date = date('Y-m-d', strtotime('Next Sunday', time()));
+		$conditions['scope'] = " (event_start_date BETWEEN CAST('$start_date' AS DATE) AND CAST('$end_date' AS DATE)) OR (event_end_date BETWEEN CAST('$end_date' AS DATE) AND CAST('$start_date' AS DATE))";
+	}
+	return $conditions;
+}
 
 ?>
