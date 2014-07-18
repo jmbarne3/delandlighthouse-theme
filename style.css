@@ -156,3 +156,10 @@ Text Domain:	arcade
   padding: 1.0em;
   border-radius: 0.45em;
 }
+
+.vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-frame, .vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-image img {
+	border: 1px solid;
+	border-color: #ccc #999 #999 #ccc;
+	background-color: #fff;
+	margin-top: 3.0em;
+}

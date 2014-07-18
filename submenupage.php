@@ -24,10 +24,10 @@ get_header();
 					}
 				?>
 				<?php 
-					$events = get_post_meta($post->ID, 'event-cat-ids'); 
+					$events = get_field('event_categories', $post->ID);
 					if (!empty($events))
 					{
-						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', get_post_meta($post->ID, 'event-cat-ids') ) );
+						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $events) );
 					}
 				 ?>	
 			</div>

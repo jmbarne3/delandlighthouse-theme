@@ -20,7 +20,7 @@
 			'headline' => $post->post_title,
 			'type' => 'default',
 			'startDate' => '1957',
-			'text' => 'Our History',
+			'text' => $post->post_content,
 			'asset' => array (
 				'media' => '',
 				'caption' => ''
