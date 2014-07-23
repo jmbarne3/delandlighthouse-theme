@@ -22,6 +22,8 @@ $bavotasan_theme_options = bavotasan_theme_options();
 						View Map
 						</a>
 					</address>
+				</div>
+				<div class="col-md-4">
 					<h5>Call Us</h5>
 					<a href='tel:+<?php echo (get_option('qs_contact_phone')); ?>'>
 						<?php echo (get_option('qs_contact_phone')); ?>
@@ -34,10 +36,6 @@ $bavotasan_theme_options = bavotasan_theme_options();
 						<a class="btn" style='padding: 0' href='<?php echo (get_option('qs_contact_youtube')); ?>' target="_blank"/><img src='<?php echo (get_option('qs_contact_youtube_icon')); ?>' alt='youtube' /></a>
 					</div>
 				</div><!--.col-lg-3-->	
-				<div class="col-lg-4">
-					<h5>Contact Us</h5>
-					<?php echo do_shortcode("[proper_contact_form]"); ?>
-				</div>
 			</div><!-- .row -->
 		</div><!-- #footer-content.container -->
 	</footer><!-- #footer -->
