@@ -30,7 +30,7 @@
 	);
 
 	foreach(get_posts($query) as $timeline_event) {
-		$date = date('Y,m,d', strtotime(get_field('start_date', $timeline_event->ID)));
+		$date = get_field('start_date', $timeline_event->ID);
 		$event_json = array (
 			'startDate' => $date,
 			'headline' => $timeline_event->post_title,
