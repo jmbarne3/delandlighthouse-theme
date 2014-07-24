@@ -83,7 +83,7 @@ $space_class = '';
     						<?php bloginfo( 'description' ); ?>
     					</h2>
 
-    					<a href="#" id="more-site" class="btn btn-default btn-lg"><?php _e( 'See More', 'arcade' ); ?></a>
+    					<a href="#" id="more-site" class="btn btn-default btn-lg"><?php _e( 'Our Vision', 'arcade' ); ?></a>
     				</div>
 
     				<?php
