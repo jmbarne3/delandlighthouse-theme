@@ -56,6 +56,9 @@ $space_class = '';
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				    </button>
+					<a href="/" class="navbar-brand">
+						<img class="img-responsive" style="height: 50px;" src="<?php echo get_bloginfo('stylesheet_directory'); ?>/img/tlc.png" alt="logo" />
+					</a>
 				</div>
 
 				<div class="collapse navbar-collapse">
@@ -67,6 +70,7 @@ $space_class = '';
 			</nav><!-- #site-navigation -->
 			<?php if ($post->post_name == 'history') { } else { ?>
 			 <div class="title-card-wrapper">
+				
                 <div class="title-card">
     				<div id="site-meta">
     					<h1 id="site-title">

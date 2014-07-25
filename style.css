@@ -13,6 +13,11 @@ Text Domain:	arcade
 @import url("../arcade-basic/style.css");
 /* =Theme customization starts here
  * -------------------------------------------*/
+.section-heading {
+   border-bottom: 1px dotted #eee;
+   margin-bottom: 2.0em;
+}
+
 #site-title {
 	margin: 0;
 	padding: 1.0em 0 0 0;
@@ -27,7 +32,7 @@ Text Domain:	arcade
 }
 
 .home-jumbotron h1 {
-  font-size: 40px;
+  font-size: 1.75em;
   line-height: 1.3;
   margin-bottom: 10px;
   word-break: inherit;
@@ -49,6 +54,7 @@ Text Domain:	arcade
   border: 0;
   border-bottom: 3px solid #eee;
 }
+
 
 /* Navbar overrides */
 
@@ -102,15 +108,18 @@ Text Domain:	arcade
 }
 
 .announcement-item {
-  background-color: rgba(43, 49, 63, 0.05);
-  padding: 0.45em;
+  border: 1px solid #eee;
+  background-color: rgba(238, 238, 238, 0.15);
   border-radius: 0.45em;
-  margin-bottom: 2.0em;
+  padding: 0.75em;
+  margin-bottom: 1.0em;
 }
 
 .announcement-item h4{
   font-size: 1.3em;
-  font-weight: bold;
+  font-weight: 500;
+  text-align: center;
+  font-family: Georgia, serif
 }
 
 .home-widget {
@@ -126,11 +135,23 @@ Text Domain:	arcade
   font-size: 24px;
 }
 
+
+#events  h3 {
+   font-family: Georgia, serif;
+   font-weight: 750;
+   background-color: #428bca;
+   padding: .5em;
+   color: #fff;
+   margin-bottom: 0;
+   border-radius: 0.45em 0.45em 0 0;
+}
+
 .events-space {
-  background-color: rgba(43, 49, 63, 0.05);
-  padding: 0.45em;
-  border-radius: 0.45em;
-  margin-bottom: 2.0em;
+  background-color: rgba(238, 238, 238, 0.20);
+  border: 1px solid #eee;
+  padding: 0.75em;
+  border-radius: 0 0 0.45em 0.45em;
+  margin-bottom: 1.5em;
 }
 
 .nav-pills > li:first-child > a {
@@ -161,4 +182,29 @@ Text Domain:	arcade
 	border-color: #ccc #999 #999 #ccc;
 	background-color: #fff;
 	margin-top: 3.0em;
+}
+
+.navbar-brand {
+	float:left;
+	padding: 0 15px;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+
+.responsive-video {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 60px; overflow: hidden;
+}
+
+
+.responsive-video iframe,
+.responsive-video object,
+.responsive-video embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
 }

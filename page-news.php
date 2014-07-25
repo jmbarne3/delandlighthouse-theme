@@ -21,20 +21,20 @@ get_header();
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 						<div class="row">
 							<div class="col-md-8">
-								<iframe width="560" height="315" src="//www.youtube.com/embed/2sdoJXeQnJk?list=PLOq9nTVcJv7DeeSVLi7G0DISZ0vvvsINz" frameborder="0" allowfullscreen></iframe>
+								<div class="responsive-video">
+								<iframe src="<?php echo get_field('video_announcement_link', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
 								<div class="row">
-									<h2>Announcements</h2>
+									<div class="section-heading"><h2>Announcements</h2></div>
 									<?php 
 										$today = current_time('mysql');
 										$post_args = array('post_type' => 'announcement', 'meta_query' => array ( array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today, 'type' => 'date')));
 
 										$loop = new WP_Query($post_args);
-
 										if ($loop->have_posts()){
 											while ($loop->have_posts() ) : $loop->the_post(); ?>
 											<div class="col-md-6">
 												<div class="announcement-item">
-													<h4><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h4>
+													<h4><i class="pull-left danger fa fa-thumb-tack"></i><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h4>
 													<?php 
 														$image = get_field('banner_image');
 														if ( !empty($image)): ?>
@@ -43,6 +43,7 @@ get_header();
 													<p><?php the_excerpt(); ?></p>
 												</div>
 											</div>
+											<?php if ($loop->current_post % 2 == 0) { } else { ?><div class="clearfix visible-md visible-lg"></div><?php } ?>
 											<?php endwhile; ?>
 
 										<?php } else { ?>
@@ -50,7 +51,16 @@ get_header();
 										<?php } ?>
 								</div>
 							</div>
+							<script type="text/javascript">
+								jQuery(document).ready( function() {
+									jQuery('.fa').each( function (index) {
+										var color = '#' + (Math.random() * 0xFFFFFF<<0).toString(16);
+										jQuery(this).css('color', color);
+									});
+								});
+							</script>
 							<div class="col-md-4">
+								<div id="events">
 								<div class="row">
 									<div class="col-md-12">
 										<h3>Upcoming Community Events</h3>
@@ -95,6 +105,7 @@ get_header();
 										</div>
 									</div>
 								</div>
+								</div> <!-- END #events -->
 							</div>
 						</div>
 					</article><!-- #post-<?php the_ID(); ?> -->
