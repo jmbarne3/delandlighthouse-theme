@@ -24,6 +24,34 @@ get_header();
 					}
 				?>
 				<?php 
+
+					$leader = get_field('leader', $post->ID);
+					$links = get_field('additional_links', $post->ID);
+
+					if (!empty($leader) || !empty($links)) {
+					?> <div class='grey-box'> <?php
+						if (!empty($leader)) {
+						?> <dl><dt>Ministry Leader</dt><dd><a href='<?php echo $leader[0]->guid; ?>'><?php echo $leader[0]->post_title; ?></a></dd><?php
+						}
+
+						if (empty($links)) {
+							?> </dl> <?php
+						} else {
+
+						?> <dt>Additional Links</dt> <?php
+							$links_array = explode('<br />', $links);
+							foreach($links_array as $link) {
+							$link_split = explode(',', $link);
+							?> <dd><a href='<?php echo $link_split[1]; ?>'><?php echo $link_split[0]; ?></a></dd><?php
+							}
+
+							?> </dl> <?php
+						}
+					?> </div> <?php
+					}
+
+				?>
+				<?php 
 					$events = get_field('event_categories', $post->ID);
 					if (!empty($events))
 					{
