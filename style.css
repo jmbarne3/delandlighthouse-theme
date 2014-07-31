@@ -251,3 +251,17 @@ h2.widgettitle {
 .blue-box p a:hover, .blue-box p a:active {
   color: #428bca;
 }
+
+/* Styles for side menu navigation */
+
+.nav-pills > li.active:first-child > a {
+  border-radius: 4px 4px 0 0;
+}
+
+.nav-pills > li.active > a {
+  border-radius: 0;
+}
+
+.nav-pills > li.active:last-child > a {
+  border-radius: 0 0 4px 4px;
+}
