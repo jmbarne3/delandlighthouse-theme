@@ -118,7 +118,7 @@ class Announcement_Widget extends WP_Widget {
 		    echo $args['after_title'];
     	}
 		
-    	$post_args = array('post_type' => 'announcement', 'posts_per_page' => $instance['num_announcements'], 'category_in' => implode(',', $instance['categories']));
+    	$post_args = array('post_type' => 'announcement', 'posts_per_page' => $instance['num_announcements'], 'category_in' => explode(',', $instance['categories']));
     	$loop = new WP_Query($post_args);
 
     	echo '<ul>';
@@ -266,14 +266,14 @@ if ( ! function_exists('create_leader_post_type') ) {
 			'slug' => 'church-leaders',
 			'with_front' => true,
 			'pages' => true,
-			'feeds' => false,
+			'feeds' => true,
 		);
 		$args = array (
 			'label' => 'church-leaders',
 			'description' => 'Church Leaders',
 			'labels' => $labels,
 			'supports' => array('title', 'editor', 'custom-fields', 'post-formats', ),
-			'taxonomies' => array ('category'),
+			'taxonomies' => array ('category', 'post_tag'),
 			'hierarchical' => false,
 			'public' => true,
 			'show_ui' => true,

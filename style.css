@@ -195,7 +195,8 @@ Text Domain:	arcade
 .responsive-video {
 position: relative;
 padding-bottom: 56.25%;
-padding-top: 60px; overflow: hidden;
+padding-top: 60px; 
+overflow: hidden;
 }
 
 
@@ -209,15 +210,44 @@ width: 100%;
 height: 100%;
 }
 
+h2.widgettitle {
+  margin-top: 0;
+}
 
-.grey-box {
-  border: 1px solid #eee;
-  background-color: rgb(238, 238, 238);
-  border-radius: 0.45em;
-  padding: 0.75em;
+.sidemenu {
+  margin-bottom: 1.0em;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  background-color: rgba(238, 238, 238, 0.1);
+}
+
+.blue-box {
+  border: 1px solid #efefef;
+  background-color: #fff;
+  border-radius: 1.0em;
   margin: 1.0em 0 1.0em 0;
 }
 
-.grey-box dd {
-	margin-left: 1.0em;
+.blue-box h3 {
+  margin-top: 0;
+  padding: 0.25em 0 0.25em 1.0em;
+  background: #eeeeee;
+  color: #000;
+  padding-left: 10px;
+}
+
+.blue-box h3.first {
+  border-radius: 0.75em 0.75em 0 0;
+}
+
+.blue-box p {
+  margin-left: 1.50em;
+}
+
+.blue-box p a {
+  color: #000;
+}
+
+.blue-box p a:hover, .blue-box p a:active {
+  color: #428bca;
 }

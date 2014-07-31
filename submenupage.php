@@ -20,7 +20,7 @@ get_header();
 				<?php 
 					$nav = get_post_meta($post->ID, 'nav-menu', true);
 					if (!empty($nav)) {
-						wp_nav_menu( array( 'theme_location' => 'submenu', 'menu' => get_post_meta($post->ID, 'nav-menu', true), 'menu_class' => 'nav nav-pills nav-stacked' ) ); 
+						wp_nav_menu( array( 'theme_location' => 'submenu', 'menu' => get_post_meta($post->ID, 'nav-menu', true), 'menu_class' => 'nav nav-pills nav-stacked sidemenu' ) ); 
 					}
 				?>
 				<?php 
@@ -29,23 +29,17 @@ get_header();
 					$links = get_field('additional_links', $post->ID);
 
 					if (!empty($leader) || !empty($links)) {
-					?> <div class='grey-box'> <?php
+					?> <div class='blue-box'> <?php
 						if (!empty($leader)) {
-						?> <dl><dt>Ministry Leader</dt><dd><a href='<?php echo $leader[0]->guid; ?>'><?php echo $leader[0]->post_title; ?></a></dd><?php
+						?> <h3 class='first'>Ministry Leader</h3><p><a href='<?php echo $leader[0]->guid; ?>'><?php echo $leader[0]->post_title; ?></a></p><?php
 						}
-
-						if (empty($links)) {
-							?> </dl> <?php
-						} else {
-
-						?> <dt>Additional Links</dt> <?php
+						if (!empty($links)) {
+						if (empty($leader)) { ?> <h3>Additional Links</h3> <?php } else { ?> <h3>Additional Links</h3> <?php }
 							$links_array = explode('<br />', $links);
 							foreach($links_array as $link) {
 							$link_split = explode(',', $link);
-							?> <dd><a href='<?php echo $link_split[1]; ?>'><?php echo $link_split[0]; ?></a></dd><?php
+							?> <p><a href='<?php echo $link_split[1]; ?>'><?php echo $link_split[0]; ?></a></p><?php
 							}
-
-							?> </dl> <?php
 						}
 					?> </div> <?php
 					}
