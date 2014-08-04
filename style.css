@@ -23,6 +23,49 @@ Text Domain:	arcade
 	padding: 1.0em 0 0 0;
 }
 
+.basic h1,
+.basic h2 {
+  color: #428bca;
+}
+
+.basic h1.entry-title {
+  border-bottom: 1px dotted #acacac;
+  padding-bottom: 0.60em;
+}
+
+.basic h3,
+.basic h4,
+.basic h5 {
+  color: #65A5DA;
+}
+
+.basic a {
+  color: #886DDE;
+}
+
+.basic a:hover, a:focus {
+  color: #6B4BD0;
+  text-decoration: underline;
+}
+
+.nav > li > a {
+  color: #428bca;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  color: #428bca;
+}
+
+.pullquote {
+  border-top: 1px solid #94C3EA;
+  border-bottom: 1px solid #94C3EA;
+}
+
+.pullquote p {
+  color: #428bca;
+}
+
 #site-description {
 	margin: 0;
 	font-size: 18px;
@@ -177,6 +220,15 @@ Text Domain:	arcade
   border-radius: 0.45em;
 }
 
+.bible-study-sidebar a {
+  color: #282828;
+}
+
+.bible-study-sidebar a:hover,
+.bible-study-sidebar a:focus {
+  color: #282828;
+}
+
 .vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-frame, .vco-slider .slider-item .content .content-container .media .media-wrapper .media-container .media-image img {
 	border: 1px solid;
 	border-color: #ccc #999 #999 #ccc;
@@ -224,33 +276,25 @@ h2.widgettitle {
 .blue-box {
   border: 1px solid #428bca;
   background-color: #fff;
-  border-radius: 1.0em;
+  border-radius: 4px;
   margin: 1.0em 0 1.0em 0;
 }
 
 .blue-box h3 {
   margin-top: 0;
-  padding: 0.25em 0 0.25em 1.0em;
+  padding: 0.25em 0.25em 0.25em 0.50em;
   background: #428bca;
   color: #fff;
-  padding-left: 10px;
 }
 
 .blue-box h3.first {
-  border-radius: 0.5em 0.5em 0 0;
+  border-radius: 2px 2px 0 0;
 }
 
 .blue-box p {
   margin-left: 1.50em;
 }
 
-.blue-box p a {
-  color: #000;
-}
-
-.blue-box p a:hover, .blue-box p a:active {
-  color: #428bca;
-}
 
 /* Styles for side menu navigation */
 
@@ -266,9 +310,4 @@ h2.widgettitle {
   border-radius: 0 0 4px 4px;
 }
 
-.content-area
-{
-  border: 1px solid #efefef;
-  border-radius: 4px;
-  padding: 1.0em;	
-}
+

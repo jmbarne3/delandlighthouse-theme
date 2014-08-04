@@ -27,7 +27,7 @@ get_header();
 					$events = get_field('event_categories', $post->ID);
 					if (!empty($events))
 					{
-						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $events) );
+						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $events) . '&format=#_EVENTLINK<ul><li>#_EVENTDATES</li></ul>');
 					}
 				 ?>	
 			</div>
