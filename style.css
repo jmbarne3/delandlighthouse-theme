@@ -48,6 +48,36 @@ Text Domain:	arcade
   text-decoration: underline;
 }
 
+a.btn {
+  color: #fff;
+}
+
+a:hover.btn {
+  color: #fefefe;
+  text-decoration: none;
+}
+
+.home-widget > a:hover,
+.home-widget > a:focus {
+  text-decoration: none;
+}
+
+.home-widget > a > i {
+  -webkit-transition: -webkit-transform .5s ease-out;
+  -moz-transition: -moz-transform .2s ease-out;
+  -o-transition: -o-transform .2s ease-out;
+  -ms-transition: -ms-transform .2s ease-out; 
+  transition: transform .2s ease-out; 
+}
+
+.home-widget > a:hover > i,
+.home-widget > a:focus > i {
+  -webkit-transition:scale(1.05);
+  -moz-transition:scale(1.05);
+  -o-transition:scale(1.05);
+  transform:scale(1.05);
+}
+
 .nav > li > a {
   color: #428bca;
 }
@@ -67,11 +97,11 @@ Text Domain:	arcade
 }
 
 #site-description {
-	margin: 0;
-	font-size: 18px;
-	line-height: 1;
-	color: #fff;
-	padding: 0 0 1.0em 0;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: #fff;
+  padding: 0 0 1.0em 0;
 }
 
 .home-jumbotron h1 {
@@ -114,7 +144,7 @@ Text Domain:	arcade
 .navbar-inverse .navbar-nav .dropdown-menu > .menu-item > li > a:hover,
 .navbar-inverse .navbar-nav .dropdown-menu > .menu-item > li > a:focus
 {
-	color: #FFA500;
+	color: #AD9AEC;
 	background-color: #080808;
 }
 
@@ -201,8 +231,8 @@ Text Domain:	arcade
   padding: 10px 15px;
 }
 
-.nav-pills > li.active:first-child > a {
-  background-color: #428bca;
+.nav-pills > li.active > a {
+ background-color: #886DDE;
 }
 
 .nav-pills > li > a {
@@ -295,6 +325,9 @@ h2.widgettitle {
   margin-left: 1.50em;
 }
 
+.blue-box a {
+  color: #000;
+}
 
 /* Styles for side menu navigation */
 
