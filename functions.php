@@ -414,7 +414,4 @@ function my_em_scope_conditions($conditions, $args){
 		$conditions['scope'] = " (event_start_date BETWEEN CAST('$start_date' AS DATE) AND CAST('$end_date' AS DATE)) OR (event_end_date BETWEEN CAST('$end_date' AS DATE) AND CAST('$start_date' AS DATE))";
 	}
 	return $conditions;
-}
-
-
-?>
+}?>

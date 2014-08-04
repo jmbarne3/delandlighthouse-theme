@@ -9,10 +9,8 @@
  *
  * @since 1.0.0
  */
-?>
 
-<?php
-	if (isset($_GET['json'])) {
+if (isset($_GET['json'])) {
 	$query = array ('post_type' => 'timeline_event', 'meta_key' => 'start_date', 'order_by' => 'start_date', 'order' => 'ASC', 'numberposts' => -1);
 
 	$to_json = array (
@@ -56,8 +54,7 @@
 
 	return;
 
-	} else { get_header(); }
-?>
+	} else { get_header(); } ?>
 
 				<div id="timeline"></div>
 			<?php if (!isset($_GET['json'])) ?>
