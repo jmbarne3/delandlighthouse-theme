@@ -24,6 +24,44 @@ get_header();
 					}
 				?>
 				<?php 
+					$events = get_field('event_categories', $post->ID);
+					if (!empty($events))
+					{
+						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $events) );
+					}
+				 ?>	
+			</div>
+			<?php 	
+				$leader = get_field('leader', $post->ID);
+				$links = get_field('additional_links', $post->ID);
+
+				if (empty($leader) && empty($links)) {
+			?>
+				<div class='col-lg-9'>
+			<?php } else { ?>
+			<div class='col-lg-6 primary'>
+			<?php 	} ?>
+				<?php
+                                while ( have_posts() ) : the_post();
+                                        ?>
+                                        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                                                <h1 class="entry-title"><?php the_title(); ?></h1>
+
+                                            <div class="entry-content description clearfix">
+                                                    <?php the_content( __( 'Read more', 'arcade') ); ?>
+                                            </div><!-- .entry-content -->
+
+                                            <?php //get_template_part( 'content', 'footer' ); ?>
+                                        </article><!-- #post-<?php the_ID(); ?> -->
+
+                                        <?php
+                                        //comments_template( '', true );
+                                endwhile;
+                                ?>
+			</div>
+			<div class='col-lg-3 primary'>
+				
+				<?php 
 
 					$leader = get_field('leader', $post->ID);
 					$links = get_field('additional_links', $post->ID);
@@ -45,32 +83,6 @@ get_header();
 					}
 
 				?>
-				<?php 
-					$events = get_field('event_categories', $post->ID);
-					if (!empty($events))
-					{
-						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $events) );
-					}
-				 ?>	
-			</div>
-			<div class='col-lg-9 primary'>
-				<?php
-                                while ( have_posts() ) : the_post();
-                                        ?>
-                                        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                                                <h1 class="entry-title"><?php the_title(); ?></h1>
-
-                                            <div class="entry-content description clearfix">
-                                                    <?php the_content( __( 'Read more', 'arcade') ); ?>
-                                            </div><!-- .entry-content -->
-
-                                            <?php get_template_part( 'content', 'footer' ); ?>
-                                        </article><!-- #post-<?php the_ID(); ?> -->
-
-                                        <?php
-                                        //comments_template( '', true );
-                                endwhile;
-                                ?>
 			</div>
 			</div>
 		</div>
