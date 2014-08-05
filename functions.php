@@ -1,5 +1,7 @@
 <?php
 
+	function remove_version() { return ''; } add_filter('the_generator', 'remove_version');
+
 	function register_my_menu() {
 		register_nav_menu('submenu',__( 'Sub Menu'));
 	}
