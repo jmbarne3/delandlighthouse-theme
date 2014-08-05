@@ -237,6 +237,15 @@ a:hover.btn {
 
 .nav-pills > li > a {
   padding: 10px 15px 10px 30px;
+  color: #886DDE;
+}
+
+.nav-pills > li > a:hover {
+  color: #886DDE;
+}
+
+.nav-pills > li.active > a:hover {
+  background-color: #886DDE;
 }
 
 .church-leaders > p.excerpt {
@@ -343,4 +352,8 @@ h2.widgettitle {
   border-radius: 0 0 4px 4px;
 }
 
-
+/* Google Maps Overrides */
+img[src*="gstatic.com/"],
+img[src*="googleapis.com/"] {
+	max-width: none;
+}
