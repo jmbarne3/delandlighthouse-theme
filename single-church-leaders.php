@@ -10,8 +10,30 @@ get_header(); ?>
 		<div class="row">
 			<div id="primary" <?php bavotasan_primary_attr(); ?>>
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'content', get_post_format() ); ?>
+					<h1 class="entry-title"><?php the_title();//get_template_part( 'content', get_post_format() ); ?></h1>
+					<?php
+                                        $email = get_field('email_address', $post->ID);
+                                        $phone = get_field('phone_number', $post->ID);
+                                        $facebook = get_field('facebook', $post->ID);
+                                        $twitter = get_field('twitter', $post->ID);
+                                        ?>
 
+					<div class="contact-box">
+						<ul class="contact-list">
+							<li><a href='tel:<?php echo $email; ?>'><?php echo $email; ?></a></li>
+						<?php if (!empty($phone)) : ?>
+							<li><a href='tel:<?php echo $phone; ?>'><?php echo $phone; ?></a></li>
+						<?php endif; ?>
+						<?php if (!empty($facebook)) : ?>
+							<li><a style="display:inline;" href='<?php echo $facebook; ?>' target="_blank"><img src='/wp-content/plugins/simple-contact-info/icons/facebook/1.png' alt="facebook" /></a></li>
+						<?php endif; ?>
+						<?php if (!empty($twitter)) : ?>
+							<li><a style="display:inline;" href='<?php echo $twitter; ?>' target="_blank"><img src='/wp-content/plugins/simple-contact-info/icons/twitter/1.png' alt='twitter' /></a></li>
+						<?php endif; ?>
+						</ul>
+					</div>
+					<div class="clearfix contact-list-clearfix"></div>
+					<?php the_content(); ?>
 					<div id="posts-pagination" class="clearfix">
 						<h3 class="sr-only"><?php _e( 'Post navigation', 'arcade' ); ?></h3>
 						<div class="previous pull-left"><?php previous_post_link( '%link', __( '&larr; %title', 'arcade' ) ); ?></div>

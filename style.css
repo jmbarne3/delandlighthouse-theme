@@ -18,6 +18,15 @@ Text Domain:	arcade
    margin-bottom: 2.0em;
 }
 
+.archive-header {
+  margin-bottom: 1.0em;
+}
+
+.archive-header h1 {
+  border-bottom: 1px dotted #acacac;
+  padding-bottom: 0.60em;
+}
+
 #site-title {
 	margin: 0;
 	padding: 1.0em 0 0 0;
@@ -39,6 +48,10 @@ Text Domain:	arcade
   color: #65A5DA;
 }
 
+#campus-map h3 {
+  margin: 0;
+}
+
 .basic a {
   color: #886DDE;
 }
@@ -46,6 +59,11 @@ Text Domain:	arcade
 .basic a:hover, a:focus {
   color: #6B4BD0;
   text-decoration: underline;
+}
+
+a:hover.header-link,
+a:focus.header-link {
+  text-decoration: none;
 }
 
 a.btn {
@@ -312,6 +330,32 @@ h2.widgettitle {
   background-color: rgba(238, 238, 238, 0.1);
 }
 
+.archive-subsection {
+  padding: 1.0em 0 1.0em 0;
+  margin: 1.0em 0 1.0em 0;
+  border-top: 1px dotted #acacac;
+  border-bottom: 1px dotted #acacac;
+}
+
+.archive-subsection.first {
+  border-top: none !important;
+  margin-top: 0px;
+}
+
+.archive-subsection h2 {
+   margin: 0;
+   color: #886DDE;
+}
+
+.blue-faded-box {
+    border: 1px solid #428bca;
+    background-color: rgba(148, 195, 234, 0.1);
+    border-radius: 4px;
+    padding: 0.25em 1.0em 0.25em 1.0em;
+    margin-top: 1.0em;
+    margin-bottom: 1.0em;
+}
+
 .blue-box {
   border: 1px solid #428bca;
   background-color: #fff;
@@ -352,8 +396,54 @@ h2.widgettitle {
   border-radius: 0 0 4px 4px;
 }
 
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0 0;
+  clear: right;
+  line-height: 40px;
+}
+
+.contact-list li {
+  display:inline-block;
+  margin: 0 24px 16px 0;
+  float:left;
+  padding: 0;
+}
+
+.contact-list li a {
+  margin-right: 23px;
+}
+
+.contact-list h4 {
+  display: inline-block;
+  margin: 0 23px 0 16px;
+  color: #886DDE;
+}
+
+.contact-list li:after {
+  content:'\2022';
+}
+
+.contact-list li:last-child:after {
+  content: none !important;
+}
+
+.contact-list-clearfix {
+  border-bottom: 1px dotted #acacac;
+  margin-bottom: 1.0em;
+}
+
 /* Google Maps Overrides */
 img[src*="gstatic.com/"],
 img[src*="googleapis.com/"] {
 	max-width: none;
+}
+
+.map-menu-control {
+	background-color: white;
+	color: black;
+	padding: 5px;
+	width: 150px;
+	height: 150px;
 }

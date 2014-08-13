@@ -391,6 +391,61 @@ function create_timeline_event_post_type() {
 
 }
 
+if ( ! function_exists('create_map_point_custom_post_type') ) {
+
+// Register Custom Post Type
+function create_map_point_custom_post_type() {
+
+	$labels = array(
+		'name'                => _x( 'Map Points', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Map Point', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Map Points', 'text_domain' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
+		'all_items'           => __( 'All Map Points', 'text_domain' ),
+		'view_item'           => __( 'View Map Point', 'text_domain' ),
+		'add_new_item'        => __( 'Add New Map Point', 'text_domain' ),
+		'add_new'             => __( 'Add Map Point', 'text_domain' ),
+		'edit_item'           => __( 'Edit Map Point', 'text_domain' ),
+		'update_item'         => __( 'Update Map Point', 'text_domain' ),
+		'search_items'        => __( 'Search Map Points', 'text_domain' ),
+		'not_found'           => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
+	);
+	$rewrite = array(
+		'slug'                => 'map-points',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'map_point', 'text_domain' ),
+		'description'         => __( 'Map Point', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', 'page-attributes', 'post-formats', ),
+		'taxonomies'          => array( 'category', 'post_tag' ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => true,
+		'publicly_queryable'  => true,
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'map_point', $args );
+
+}
+
+// Hook into the 'init' action
+add_action( 'init', 'create_map_point_custom_post_type', 0 );
+
+}
+
 // Hook into the 'init' action
 add_action( 'init', 'create_timeline_event_post_type', 0 );
 

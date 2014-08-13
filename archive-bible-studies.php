@@ -20,8 +20,8 @@ get_header(); ?>
 
 					<?php if ( have_posts() ) : ?>
 
-					<header id="archive-header">
-						<h1 class="page-title">
+					<header class="archive-header">
+						<h1 class="entry-title">
 							Bible Studies
 						</h1><!-- .page-title -->
 					</header><!-- #archive-header -->

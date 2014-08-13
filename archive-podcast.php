@@ -20,9 +20,9 @@ get_header(); ?>
 
 				<?php if ( have_posts() ) : ?>
 
-					<header id="archive-header">
+					<header class="archive-header">
 						<?php if ( is_author() ) echo get_avatar( get_the_author_meta( 'ID' ), 80 ); ?>
-						<h1 class="page-title">
+						<h1 class="entry-title">
 							<?php _e( 'Service Archives', 'arcade' ); ?>
 						</h1><!-- .page-title -->
 						<?php
