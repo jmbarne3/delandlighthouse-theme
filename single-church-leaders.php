@@ -12,6 +12,7 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<h1 class="entry-title"><?php the_title();//get_template_part( 'content', get_post_format() ); ?></h1>
 					<?php
+					$title = get_field('position_title', $post->ID);
                                         $email = get_field('email_address', $post->ID);
                                         $phone = get_field('phone_number', $post->ID);
                                         $facebook = get_field('facebook', $post->ID);
@@ -20,6 +21,7 @@ get_header(); ?>
 
 					<div class="contact-box">
 						<ul class="contact-list">
+							<li><h4><?php echo $title; ?></h4></li>
 							<li><a href='tel:<?php echo $email; ?>'><?php echo $email; ?></a></li>
 						<?php if (!empty($phone)) : ?>
 							<li><a href='tel:<?php echo $phone; ?>'><?php echo $phone; ?></a></li>

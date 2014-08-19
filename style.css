@@ -343,6 +343,7 @@ h2.widgettitle {
 }
 
 .archive-subsection h2 {
+   text-align: center;
    margin: 0;
    color: #886DDE;
 }

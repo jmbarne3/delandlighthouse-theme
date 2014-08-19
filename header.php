@@ -68,7 +68,7 @@ $space_class = '';
 					?>
 				</div>
 			</nav><!-- #site-navigation -->
-			<?php if ($post->post_name == 'history') { } else { ?>
+			<?php if ($post->post_name == 'history' || $post->post_name == 'world-missions-map') { } else { ?>
 			 <div class="title-card-wrapper">
 				
                 <div class="title-card">
