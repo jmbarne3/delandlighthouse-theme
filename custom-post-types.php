@@ -297,7 +297,7 @@ function create_world_missions_custom_post_type() {
 		'show_in_admin_bar'   => true,
 		'menu_position'       => 5,
 		'can_export'          => true,
-		'has_archive'         => false,
+		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,

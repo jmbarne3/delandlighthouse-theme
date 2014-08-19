@@ -23,7 +23,9 @@ if (isset($_GET['json'])) {
 			'location' => get_field('location_name', $missionary->ID),
 			'latitude' => (double)get_field('latitude', $missionary->ID),
 			'longitude' => (double)get_field('longitude', $missionary->ID),
-			'content' => $missionary->post_content
+			'excerpt' => $missionary->post_excerpt,
+			'portrait' => get_field('portrait', $missionary->ID),
+			'permalink' => '/world-missions/' . $missionary->post_name
 		);
 		
 		$to_json['missions'][] = $mission_json;
@@ -37,31 +39,10 @@ if (isset($_GET['json'])) {
 
 } else {
 	get_header();
+	wp_enqueue_script('google-map-js', '//maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false');
+	wp_enqueue_script('world-missions-js', get_stylesheet_directory_uri() . '/js/world-missions.js');
 }
 ?>
 	<div id="missions-map"></div>
-	<div class="container">
-		<div class="row">
-			<div id="primary" <?php bavotasan_primary_attr(); ?>>
-				<?php
-				while ( have_posts() ) : the_post();
-					?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-
-					    <div class="entry-content description clearfix">
-						    <?php the_content( __( 'Read more', 'arcade') ); ?>
-					    </div><!-- .entry-content -->
-
-					    <?php get_template_part( 'content', 'footer' ); ?>
-					</article><!-- #post-<?php the_ID(); ?> -->
-
-					<?php
-				endwhile;
-				?>
-			</div>
-			<?php //get_sidebar(); ?>
-		</div>
-	</div>
 
 <?php get_footer(); ?>

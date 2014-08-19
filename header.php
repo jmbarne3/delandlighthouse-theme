@@ -49,7 +49,6 @@ $space_class = '';
 			<nav id="site-navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<h3 class="sr-only"><?php _e( 'Main menu', 'arcade' ); ?></h3>
 				<a class="sr-only" href="#primary" title="<?php esc_attr_e( 'Skip to content', 'arcade' ); ?>"><?php _e( 'Skip to content', 'arcade' ); ?></a>
-
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 				        <span class="icon-bar"></span>
@@ -58,13 +57,15 @@ $space_class = '';
 				    </button>
 					<a href="/" class="navbar-brand">
 						<img class="img-responsive" style="height: 50px;" src="<?php echo get_bloginfo('stylesheet_directory'); ?>/img/tlc.png" alt="logo" />
-					</a>
+					</a>	
 				</div>
 
 				<div class="collapse navbar-collapse">
 					<?php
 					$menu_class = ( is_rtl() ) ? ' navbar-right' : '';
 					wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' => 'nav navbar-nav' . $menu_class, 'fallback_cb' => 'bavotasan_default_menu', 'depth' => 2 ) );
+
+				 	include (TEMPLATEPATH . '/searchform.php');
 					?>
 				</div>
 			</nav><!-- #site-navigation -->
