@@ -65,7 +65,7 @@ $space_class = '';
 					$menu_class = ( is_rtl() ) ? ' navbar-right' : '';
 					wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' => 'nav navbar-nav' . $menu_class, 'fallback_cb' => 'bavotasan_default_menu', 'depth' => 2 ) );
 
-				 	include (TEMPLATEPATH . '/searchform.php');
+				 	include (STYLESHEETPATH . "/searchform.php");
 					?>
 				</div>
 			</nav><!-- #site-navigation -->

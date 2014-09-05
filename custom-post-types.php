@@ -80,7 +80,7 @@ if ( ! function_exists('create_leader_post_type') ) {
 			'label' => 'church-leaders',
 			'description' => 'Church Leaders',
 			'labels' => $labels,
-			'supports' => array('title', 'editor', 'custom-fields', 'post-formats', ),
+			'supports' => array('title', 'editor', 'custom-fields', 'post-formats', 'excerpt'),
 			'taxonomies' => array ('category', 'post_tag'),
 			'hierarchical' => false,
 			'public' => true,

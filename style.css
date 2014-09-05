@@ -448,3 +448,49 @@ img[src*="googleapis.com/"] {
 	width: 150px;
 	height: 150px;
 }
+
+.church-leaders {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	border-bottom: none;
+}
+
+.churchleader
+{
+	display:none;
+}
+
+.active-church-leader 
+{
+	display:block;
+}
+
+@media (min-width: 768px) {
+
+
+	.churchleader
+	{
+		left: 1.0em;
+		right: 1.0em;
+		word-wrap: auto;
+		background: rgba(230, 230, 230, 0.25);
+		display:block;
+	}
+
+	.churchleader h3
+	{
+		font-size: 1.3em;
+	}
+
+	.active-church-leader
+	{
+		display: none;
+		position: relative;
+		left: 0em;
+		right: 1.0em;
+		background: rgba(230, 230, 230, 0.9);
+		overflow: visible;
+		height: auto;
+	}
+
+}

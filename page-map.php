@@ -10,7 +10,7 @@
  * @since 1.0.0
  */
 
-wp_enqueue_script('google-map-js', '//maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false');
+wp_enqueue_script('google-map-js', '//maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false&v=3.exp');
 wp_enqueue_script('campus-map-js', get_stylesheet_directory_uri() . '/js/campus-map.js');
 wp_enqueue_script('campus-map-labels-js', get_stylesheet_directory_uri() . '/js/maplabel-compiled.js');
 
@@ -27,7 +27,8 @@ if (isset($_GET['json'])) {
 			'title' => $map_point->post_title,
 			'content' => $map_point->post_content,
 			'latitude' => (double)get_field('latitude', $map_point->ID),
-			'longitude' => (double)get_field('longitude', $map_point->ID)
+			'longitude' => (double)get_field('longitude', $map_point->ID),
+			'filter' => get_field('filter', $map_point->ID)
 		);
 
 		$to_json['points'][] = $point_json;

@@ -1,5 +1,6 @@
 var infoWindows = [];
-var filters = [];
+var filters = [];		
+var map;
 
 	function initialize() {
 		detectBrowser();
@@ -10,17 +11,27 @@ var filters = [];
 			mapTypeId:google.maps.MapTypeId.SATELLITE
 		};
 
-		var map = new google.maps.Map(document.getElementById("campus-map"), mapProp);
+		map = new google.maps.Map(document.getElementById("campus-map"), mapProp);
 
 		drawBuildingLabels(map);
-		drawMarkers(map, '');
+		drawMarkers(map, 'locations');
 
+		console.log(filters.length);
+
+		var controlDiv = document.createElement('div');
+		var control = FilterControl(controlDiv, map);
+
+		controlDiv.index = 1;
+		map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(controlDiv);
 	}
 
 	function drawBuildingLabels(map) {
 		jQuery.getJSON("/map/?json=true&category=buildings", function(data) {
 			for(var i = 0; i < data.points.length; i++) {
 				createMapLabel(map, data.points[i].latitude, data.points[i].longitude, data.points[i].title);
+				if (!containsObject(data.points[i].filter, filters) && data.points[i].filter != "") {
+					filters.push( data.points[i].filter);
+				}
 			}
 		});
 	}
@@ -29,8 +40,21 @@ var filters = [];
 		jQuery.getJSON("map?json=true&category=locations", function(data) {
 			for(var i = 0; i < data.points.length; i++) {
 				createLocation(map, data.points[i].latitude, data.points[i].longitude, data.points[i].title, data.points[i].content);
+				if (!containsObject(data.points[i].filter, filters) && data.points[i].filter != "") {
+					filters.push( data.points[i].filter);
+				}
 			}
 		});
+	}
+
+	function containsObject(obj, list) {
+		var i;
+		for (i = 0; i < list.length; i++) {
+			if (list.length == 0 || list[i] === obj) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	function detectBrowser() {
@@ -46,25 +70,39 @@ var filters = [];
 		}
 	}
 
-	function MenuControl(controlDiv, map) {
-		controlDiv.className = 'map-menu-control';
-		var list = document.createElement('ul');
-		list.style.padding = '2px 0 2px 2px';
-		controlDiv.appendChild(list);
+	function FilterControl(controlDiv, map) {
+		controlDiv.style.padding = '5px';
+
+		var controlUI = document.createElement('div');
+		controlUI.style.backgroundColor = 'white';
+		controlUI.style.borderStyle = 'solid';
+		controlUI.style.borderColor = '#fff';
+		controlUI.style.borderWidth = "1px";
+		controlUI.style.borderRadius = "1.0em";
+		controlDiv.appendChild(controlUI);
+		var header = document.createElement('h4');
+		header.innerText = 'Filters';
+		controlUI.appendChild(header);
+
+		var listContainer = document.createElement('form');
 		for (var i = 0; i < filters.length; i++) {
 			console.log(filters[i]);
-			var inputWrapper = document.createElement('li');
-			inputWrapper.style.display = 'inline-block';
-			list.appendChild(inputWrapper);
 			var input = document.createElement('input');
 			input.type = 'checkbox';
+			input.className = 'checkbox-inline';
 			input.style.float = 'left';
-			inputWrapper.appendChild(input);
+			input.style.margin = '3px 4px 0 4px';
+			input.name = filters[i];
+			input.value = filters[i];
 			var label = document.createElement('label');
-			label.style.padding = '0 0 0 5px';
+			label.style.marginRight = '8px';
 			label.innerText = filters[i];
-			inputWrapper.appendChild(label);
+			listContainer.appendChild(label);
+			label.appendChild(input);
+			var br = document.createElement('br');
+			listContainer.appendChild(br);
 		}
+		controlUI.appendChild(listContainer);
 		return controlDiv;
 	}
 
@@ -87,9 +125,10 @@ var filters = [];
 			text: title,
 			position: new google.maps.LatLng(lat, lng),
 			map: map,
-			fontSize: 20,
-			align: 'center',
-			fontColor: '#428bca'
+			fontSize: 15,
+			align: 'right',
+			fontColor: '#000',
+			fontFamily: 'Georgia, serif'
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {
