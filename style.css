@@ -488,7 +488,7 @@ img[src*="googleapis.com/"] {
 		position: relative;
 		left: 0em;
 		right: 1.0em;
-		background: rgba(230, 230, 230, 0.9);
+		background: rgba(255, 255, 255, 0.85);
 		overflow: visible;
 		height: auto;
 	}
