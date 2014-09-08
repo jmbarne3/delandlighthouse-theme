@@ -62,20 +62,20 @@ class Announcement_Widget extends WP_Widget {
 
 		$instance = array_merge($this->defaults, $instance);
 		echo $args['before_widget'];
-    	if( !empty($instance['title']) ){
-		    echo $args['before_title'];
-		    echo apply_filters('widget_title',$instance['title'], $instance, $this->id_base);
-		    echo $args['after_title'];
-    	}
+    //	if( !empty($instance['title']) ){
+//		    echo $args['before_title'];
+		    //echo apply_filters('widget_title',$instance['title'], $instance, $this->id_base);
+//		    echo $args['after_title'];
+  //  	}
 		
     	$post_args = array('post_type' => 'announcement', 'posts_per_page' => $instance['num_announcements'], 'category_in' => explode(',', $instance['categories']));
     	$loop = new WP_Query($post_args);
 
-    	echo '<ul>';
+    	echo '<ul class="announcement-widget">';
 
     	if ($loop->have_posts()) {
     		while ($loop->have_posts() ) : $loop->the_post(); ?>
-    			<li class="announcement-front-page"><a href="<?php echo get_permalink($post->id) ?>">  <?php the_title() ?></a></li>
+    			<li class="announcement-item"><a href="<?php echo get_permalink($post->id) ?>">  <?php the_title() ?></a></li>
     		<?php endwhile;
     	} else {
     		echo '<p>' . $instance['no_announcements_text'] . '</p>';

@@ -65,24 +65,27 @@ get_header();
 
 					$leader = get_field('leader', $post->ID);
 					$links = get_field('additional_links', $post->ID);
+					$announcements = get_field('announcement_categories', $post->ID);
 
-					if (!empty($leader) || !empty($links)) {
+					if (!empty($leader) || !empty($links) || !empty($announcements)) {
 					?> <div class='blue-box'> <?php
 						if (!empty($leader)) {
 						?> <h3 class='first'>Ministry Leader</h3><p><a href='<?php echo $leader[0]->guid; ?>'><?php echo $leader[0]->post_title; ?></a></p><?php
 						}
-						if (!empty($links)) {
-						if (empty($leader)) { ?> <h3>Additional Links</h3> <?php } else { ?> <h3>Additional Links</h3> <?php }
-							$links_array = explode('<br />', $links);
-							foreach($links_array as $link) {
-								echo "<p>" . htmlspecialchars_decode($link) . "</p>";
-							}
+						if (!empty($announcements)) {
+							if (empty($leader)) { ?> <h3 class="first">Announcements</h3> <?php } else { ?> <h3>Announcements</h3> <?php }
+	                                                	the_widget('Announcement_Widget', array ('categories' => explode(',', $announcements)));
 						}
-					?> </div> <?php
+						if (!empty($links)) {
+							if (empty($leader) && empty($announcements)) { ?> <h3 class="first">Additional Links</h3> <?php } else { ?> <h3>Additional Links</h3> <?php }
+								$links_array = explode('<br />', $links);
+								foreach($links_array as $link) {
+									echo "<p>" . htmlspecialchars_decode($link) . "</p>";
+								}
+						}
+					
 					}
-
 				?>
-			</div>
 			</div>
 		</div>
 	</div>

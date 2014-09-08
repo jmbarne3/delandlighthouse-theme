@@ -181,29 +181,26 @@ a:hover.btn {
   text-align:right;
 }
 
-.announcement-front-page
+.announcement-widget
 {
-  list-style: none;
+  padding: 0 1.5em 0 1.5em;
 }
 
-.announcement-front-page a {
+.announcement-item
+{
+  list-style: none;
+  margin: 0 0 10px;
+}
+
+.announcement-item a {
   color: Black;
   text-decoration: none;
-  font-size: 0.8em;
 }
 
 .announcement-front-page a:hover, .announcement a:focus{
   color: #FFA500;
   text-decoration: none;
   font-size:0.8em;
-}
-
-.announcement-item {
-  border: 1px solid #eee;
-  background-color: rgba(238, 238, 238, 0.15);
-  border-radius: 0.45em;
-  padding: 0.75em;
-  margin-bottom: 1.0em;
 }
 
 .announcement-item h4{
