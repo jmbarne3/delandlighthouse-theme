@@ -78,7 +78,7 @@ class Announcement_Widget extends WP_Widget {
     			<li class="announcement-item"><a href="<?php echo get_permalink($post->id) ?>">  <?php the_title() ?></a></li>
     		<?php endwhile;
     	} else {
-    		echo '<p>' . $instance['no_announcements_text'] . '</p>';
+    		echo '<li>' . $instance['no_announcements_text'] . '</li>';
     	}
 
     	echo '</ul>';
