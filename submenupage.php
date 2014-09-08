@@ -75,8 +75,7 @@ get_header();
 						if (empty($leader)) { ?> <h3>Additional Links</h3> <?php } else { ?> <h3>Additional Links</h3> <?php }
 							$links_array = explode('<br />', $links);
 							foreach($links_array as $link) {
-							$link_split = explode(',', $link);
-							?> <p><a href='<?php echo $link_split[1]; ?>'><?php echo $link_split[0]; ?></a></p><?php
+								echo "<p>" . htmlspecialchars_decode($link) . "</p>";
 							}
 						}
 					?> </div> <?php
