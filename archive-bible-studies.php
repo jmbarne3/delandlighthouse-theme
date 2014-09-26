@@ -24,6 +24,10 @@ get_header(); ?>
 						<h1 class="entry-title">
 							Bible Studies
 						</h1><!-- .page-title -->
+						<ul class="nav nav-pills">
+							<li><a href="#Men">Men's Studies</a></li>
+							<li><a href="#Women">Women's Studies</a></li>
+						</ul>
 					</header><!-- #archive-header -->
 
 					<?php
@@ -41,10 +45,10 @@ get_header(); ?>
     							);
 		    					$posts=get_posts($args );
       							if ($posts) {
-								echo  '<h2>For ' . $category->name . '</h2><hr />';
+								echo  '<a name="' . $category->name .'"></a><div class="archive-subsection"><h2>' . $category->name . '\'s Studies</h2></div>';
         							foreach($posts as $post) {
 		          						setup_postdata($post); ?>
-          								<h3><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+          								<h3 class="bible-studies"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
 									<p><?php the_excerpt(); ?></p>
           								<?php
         							} // foreach($posts

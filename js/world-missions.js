@@ -55,6 +55,7 @@ var infoWindows = [];
 				infoWindow.close();
 			} else {
 				closeAllInfoWindows();
+				map.panTo(marker.getPosition());
 				infoWindow.open(map, marker);
 			}
 		});

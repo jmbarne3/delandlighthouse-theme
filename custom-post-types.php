@@ -284,7 +284,7 @@ function create_world_missions_custom_post_type() {
 		'feeds'               => true,
 	);
 	$args = array(
-		'label'               => __( 'world_missions', 'text_domain' ),
+		'label'               => __( 'world-missions', 'text_domain' ),
 		'description'         => __( 'Contains information pertaining to world missionaries.', 'text_domain' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields', ),

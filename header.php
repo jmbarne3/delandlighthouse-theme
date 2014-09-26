@@ -44,7 +44,7 @@ $space_class = '';
 <body <?php body_class(); ?>>
 
 	<div id="page">
-
+		<?php if (!$_GET['noheader']) { ?>
 		<header id="header">
 			<nav id="site-navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<h3 class="sr-only"><?php _e( 'Main menu', 'arcade' ); ?></h3>
@@ -65,7 +65,6 @@ $space_class = '';
 					$menu_class = ( is_rtl() ) ? ' navbar-right' : '';
 					wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' => 'nav navbar-nav' . $menu_class, 'fallback_cb' => 'bavotasan_default_menu', 'depth' => 2 ) );
 
-				 	include (STYLESHEETPATH . "/searchform.php");
 					?>
 				</div>
 			</nav><!-- #site-navigation -->
@@ -100,6 +99,6 @@ $space_class = '';
 
 <?php } ?>
 		</header>
-
+		<?php } ?>
 		<main>
 

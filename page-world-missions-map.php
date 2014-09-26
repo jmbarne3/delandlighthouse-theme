@@ -11,7 +11,7 @@
  */
 
 if (isset($_GET['json'])) {
-	$query = array ('post_type' => 'world_missions');
+	$query = array ('post_type' => 'world_missions', 'numberposts' => 0);
 
 	$to_json = array (
 		missions => array()

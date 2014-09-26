@@ -48,6 +48,10 @@ Text Domain:	arcade
   color: #65A5DA;
 }
 
+.basic h3.bible-studies a {
+  color: #65A5DA;
+}
+
 #campus-map h3 {
   margin: 0;
 }
