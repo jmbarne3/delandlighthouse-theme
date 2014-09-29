@@ -70,8 +70,16 @@ get_header();
 					if (!empty($leader) || !empty($links) || !empty($announcements)) {
 					?> <div class='blue-box'> <?php
 						if (!empty($leader)) {
-						?> <h3 class='first'>Ministry Leader</h3><p><a href='<?php echo $leader[0]->guid; ?>'><?php echo $leader[0]->post_title; ?></a></p><?php
-						}
+							$leaders = count($leader);
+							if ($leaders == 1) { ?>
+								<h3 class='first'>Ministry Leader</h3><p><a href='<?php echo $leader[0]->guid; ?>'><?php echo $leader[0]->post_title; ?></a></p><?php
+							} else { ?>
+								<h3 class='first'>Ministry Leaders</h3>
+							<?php	for($i = 0; $i < $leaders.count(); $i++) {
+									?> <p><a href='<?php echo $leader[$i]->guid; ?>'><?php echo $leader[$i]->post_title; ?></a></p> <?php
+								}
+							}
+						} 
 						if (!empty($announcements)) {
 							if (empty($leader)) { ?> <h3 class="first">Announcements</h3> <?php } else { ?> <h3>Announcements</h3> <?php }
 	                                                	the_widget('Announcement_Widget', array ('categories' => explode(',', $announcements)));

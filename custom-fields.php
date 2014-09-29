@@ -196,8 +196,7 @@ if(function_exists("register_field_group"))
 					0 => 'featured_image',
 					1 => 'post_type',
 					2 => 'post_title',
-				),
-				'max' => 1,
+				)
 			),
 			array (
 				'key' => 'field_53c9252d1650c',
