@@ -9,51 +9,48 @@
  *
  * @since 1.0.0
  */
-get_header();
 
 function cleanInput($input) {
-	$input = trim($input);
-	$input = stripslashes($input);
-	$input = htmlspecialchars($input);
-	return $input;
+        $input = trim($input);
+        $input = stripslashes($input);
+        $input = htmlspecialchars($input);
+        return $input;
+}                              
+                                
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $firstname = cleanInput($_POST['pg_billto_postal_name_first']);
+        $lastname = cleanInput($_POST['pg_billto_postal_name_last']);
+        $address = cleanInput($_POST['pg_billto_postal_street_line1']);
+        $address2 = cleanInput($_POST['pg_billto_postal_street_line2']);
+        $city = cleanInput($_POST['pg_billto_postal_city']);    
+        $state = cleanInput($_POST['pg_billto_postal_stateprov']);      
+        $zip = cleanInput($_POST['pg_billto_postal_postalcode']);       
+        $cardNum = cleanInput($_POST['pg_payment_card_number']);
+        $cardName = cleanInput($_POST['pg_payment_card_name']);
+        $cardType = cleanInput($_POST['pg_payment_card_type']);
+        $expMonth = cleanInput($_POST['pg_payment_card_expdate_month']);
+        $expYear = cleanInput($_POST['pg_payment_card_expdate_year']);  
+        $apiLoginID = 'esT77y1AC8';                                     
+                                                                
+        $fields = array(                                
+                'pg_billto_postal_name_first' => $firstname,
+                'pg_billto_postal_name_last' => $lastname,
+                'pg_billto_postal_street_line1' => $address,
+                'pg_billto_postal_street_line2' => $address2,
+                'pg_billto_postal_city' => $city,               
+                'pg_billto_postal_stateprov' => $state,                 
+                'pg_billti_postal_postalcode' => $zip,                  
+                'pg_payment_card_number' => $cardNum,           
+                'pg_payment_card_name' => $cardName,    
+                'pg_payment_card_type' => $cardType,    
+                'pg_payment_card_expdate_month' => $expMonth,   
+                'pg_payment_card_expdate_year' => $expYear,             
+                'pg_api_login_id' => $apiLoginID                        
+        );                                                      
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	$firstname = cleanInput($_POST['pg_billto_postal_name_first']);
-	$lastname = cleanInput($_POST['pg_billto_postal_name_last']);
-	$address = cleanInput($_POST['pg_billto_postal_street_line1']);
-	$address2 = cleanInput($_POST['pg_billto_postal_street_line2']);
-	$city = cleanInput($_POST['pg_billto_postal_city']);
-	$state = cleanInput($_POST['pg_billto_postal_stateprov']);
-	$zip = cleanInput($_POST['pg_billto_postal_postalcode']);
-	$cardNum = cleanInput($_POST['pg_payment_card_number']);
-	$cardName = cleanInput($_POST['pg_payment_card_name']);
-	$cardType = cleanInput($_POST['pg_payment_card_type']);
-	$expMonth = cleanInput($_POST['pg_payment_card_expdate_month']);
-	$expYear = cleanInput($_POST['pg_payment_card_expdate_year']);
-	$apiLoginID = 'esT77y1AC8';
 
-	$fields = array(
-		'pg_billto_postal_name_first' => $firstname,
-		'pg_billto_postal_name_last' => $lastname,
-		'pg_billto_postal_street_line1' => $address,
-		'pg_billto_postal_street_line2' => $address2,
-		'pg_billto_postal_city' => $city,
-		'pg_billto_postal_stateprov' => $state,
-		'pg_billti_postal_postalcode' => $zip,
-		'pg_payment_card_number' => $cardNum,
-		'pg_payment_card_name' => $cardName,
-		'pg_payment_card_type' => $cardType,
-		'pg_payment_card_expdate_month' => $expMonth,
-		'pg_payment_card_expdate_year' => $expYear,
-		'pg_api_login_id' => $apiLoginID
-	);	
-
-	http_redirect('https://swp.paymentgateway.net/default.aspx', $fields);
-
-
-} else {
-
+get_header();
 ?>
 	<div class="container">
 		<div class="row">
@@ -237,5 +234,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<?php //get_sidebar(); ?>
 		</div>
 	</div>
-<?php } ?>
 <?php get_footer(); ?>

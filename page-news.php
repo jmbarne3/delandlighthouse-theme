@@ -10,6 +10,8 @@
  * @since 1.0.0
  */
 get_header();
+wp_enqueue_script('bootstrap-carousel', get_stylesheet_directory_uri() . '/js/bootstrap-carousel.js');
+wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 ?>
 
 	<div class="container">
@@ -21,8 +23,37 @@ get_header();
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 						<div class="row">
 							<div class="col-md-8">
-								<div class="responsive-video">
-								<iframe src="<?php echo get_field('video_announcement_link', $post->ID); ?>" frameborder="0" allowfullscreen></iframe></div>
+								<?php
+									$imagesRaw = get_field('carousel_images', $post->ID);
+									$images = explode('<br />', $imagesRaw);
+								?>
+								<div id="announcement-carousel" class="carousel slide" data-ride="carousel">
+									<ol class="carousel-indicators">
+										<?php 
+											for($i = 0; $i < count($images); $i++) {
+												if ($i == 0) {
+													echo '<li data-target="#announcement-carousel" data-slide-to="' . $i . '" class="active"></li>';
+												} else {
+													echo '<li data-target="#announcement-carousel" data-slide-to="' . $i . '"></li>';
+												}
+											}
+										?>
+									</ol>
+									<div class="carousel-inner">
+										<?php 
+											foreach($images as $index => $image) {
+												$split = explode(',', $image);
+												if ($index != 0) {
+													echo '<div class="item"><a href="' . $split[1] . '" target="_blank"><img src="' . $split[0] . '" alt="announcement" class="responsive-img"/></a></div>';
+												} else {
+													echo '<div class="item active"><a href="' . $split[1] . '" target="_blank"><img src="' . $split[0] . '" alt="announcement" class="responsive-img" /></a></div>';
+												}
+											}
+										?>
+									</div>
+									 <a class="carousel-control left" href="#announcement-carousel" role="button" data-slide="prev">&lsaquo;</a>
+									 <a class="carousel-control right" href="#announcement-carousel" role="button"  data-slide="next">&rsaquo;</a>
+								</div>
 								<div class="row">
 									<div class="section-heading"><h2>Announcements</h2></div>
 									<?php 
@@ -63,37 +94,19 @@ get_header();
 								<div id="events">
 								<div class="row">
 									<div class="col-md-12">
-										<h3>Upcoming Community Events</h3>
+										<h3>Upcoming Events</h3>
 										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="5" scope="future" category=14]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
-											<a href="/events/categories/community-events/">See More</a>
+											<?php  echo do_shortcode('[events_list limit="10" scope="2-months" category=14]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
+											<a href="/events/categories/featured/">See More</a>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12">
-										<h3>Upcoming Youth Events</h3>
+										<h3>Happening This Week</h3>
 										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="5" scope="future" category=15]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
-											<a href="/events/categories/youth-events/">See More</a>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<h3>Upcoming Men Events</h3>
-										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="5" scope="future" category=16]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
-											<a href="/events/categories/men-events/">See More</a>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<h3>Upcoming Women Events</h3>
-										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="5" scope="future" category=17]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
-											<a href="/events/categories/women-events/">See More</a>
+											<?php  echo do_shortcode('[events_list limit="0" scope="this-week" category=57]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
+											<a href="/events/categories/this-week/">See More</a>
 										</div>
 									</div>
 								</div>
@@ -115,5 +128,4 @@ get_header();
 				?>
 			</div>
 	</div>
-
 <?php get_footer(); ?>

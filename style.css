@@ -466,6 +466,37 @@ img[src*="googleapis.com/"] {
 	display:block;
 }
 
+.wp-caption {
+	background: transparent;
+	border: none;
+}
+
+.wp-caption p.wp-caption-text {
+	font-style: italic;
+}
+
+#announcement-carousel {
+	overflow: hidden;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+a.carousel-control {
+	top: 35%;
+	text-decoration: none;
+	color: #fff;
+	font-size: 5.0em;
+}
+
+a.carousel-control:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+.carousel-indicators {
+	bottom: 0px;
+}
+
 @media (min-width: 768px) {
 
 

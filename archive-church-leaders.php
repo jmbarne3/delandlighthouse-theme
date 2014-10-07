@@ -19,7 +19,7 @@ wp_enqueue_script('church-leader-js', get_stylesheet_directory_uri() . '/js/chur
 	<div class="container">
 		<div class="row">
 			<section id="primary" <?php bavotasan_primary_attr(); ?>>
-				<?php  query_posts(array ( 'post_type' => 'church-leaders', 'meta_key' => 'order', 'orderby' => 'meta_value_num', 'order' => 'ASC', 'posts_per_page' => 100)); ?>
+				<?php  query_posts(array ( 'post_type' => 'church-leaders', 'meta_key' => 'order', 'orderby' => 'meta_value_num', 'order' => 'ASC', 'posts_per_page' => 100, 'category_name' => 'meet-the-team')); ?>
 				<?php if ( have_posts() ) : ?>
 
 					<header class="archive-header">

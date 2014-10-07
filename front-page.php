@@ -36,7 +36,7 @@ if ( 2 > $paged ) {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<?php echo do_shortcode('[quote_rotator title="" number="5" howlong="5000" fadetime="1000" random="1"]'); ?>
+				<?php echo do_shortcode('[quote_rotator title="" number="20" howlong="7500" fadetime="1000" random="0" height="100"]'); ?>
 			</div>
 		</div>
 	</div>
