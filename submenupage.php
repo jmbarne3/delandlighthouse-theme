@@ -27,7 +27,7 @@ get_header();
 					$events = get_field('event_categories', $post->ID);
 					if (!empty($events))
 					{
-						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $events) . '&format=#_EVENTLINK<ul><li>#_EVENTDATES</li></ul>');
+						the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $events) . '&format=<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />');
 					}
 				 ?>	
 			</div>
@@ -82,7 +82,8 @@ get_header();
 						} 
 						if (!empty($announcements)) {
 							if (empty($leader)) { ?> <h3 class="first">Announcements</h3> <?php } else { ?> <h3>Announcements</h3> <?php }
-	                                                	the_widget('Announcement_Widget', array ('categories' => explode(',', $announcements)));
+								$annc = implode($announcements);
+	                                                	the_widget('Announcement_Widget', array ('categories' => $annc));
 						}
 						if (!empty($links)) {
 							if (empty($leader) && empty($announcements)) { ?> <h3 class="first">Additional Links</h3> <?php } else { ?> <h3>Additional Links</h3> <?php }
@@ -95,7 +96,9 @@ get_header();
 					}
 				?>
 			</div>
+		    </div>
 		</div>
+	    </div>
 	</div>
 
 <?php get_footer(); ?>

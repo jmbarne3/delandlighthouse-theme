@@ -10,7 +10,8 @@ $bavotasan_theme_options = bavotasan_theme_options();
 ?>
 	</main><!-- main -->
 	<?php if (!$_GET['nofooter']) { ?>
-	<footer id="footer" role="contentinfo">
+	<div id="footer">
+	<footer role="contentinfo">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
@@ -46,9 +47,9 @@ $bavotasan_theme_options = bavotasan_theme_options();
 				</div>
 			</div><!-- .row -->
 		</div><!-- #footer-content.container -->
-	</footer><!-- #footer --> <?php } ?>
+	</footer></div><!-- #footer --> <?php } ?>
 </div><!-- #page -->
-
+</div>
 <?php wp_footer(); ?>
 </body>
 </html>

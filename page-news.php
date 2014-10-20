@@ -96,8 +96,7 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 									<div class="col-md-12">
 										<h3>Upcoming Events</h3>
 										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="10" scope="2-months" category=14]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
-											<a href="/events/categories/featured/">See More</a>
+											<?php  echo do_shortcode('[events_list limit="10" scope="2-months" category=14]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]') ?>
 										</div>
 									</div>
 								</div>
@@ -105,8 +104,7 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 									<div class="col-md-12">
 										<h3>Happening This Week</h3>
 										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="0" scope="this-week" category=57]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]') ?>
-											<a href="/events/categories/this-week/">See More</a>
+											<?php  echo do_shortcode('[events_list limit="0" scope="this-week" category=57]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]') ?>
 										</div>
 									</div>
 								</div>
@@ -114,7 +112,7 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 									<div class="col-md-12">
 										<h3>Bible Studies This Week</h3>
 										<div class="events-space">
-											<?php echo do_shortcode('[events_list limit="5" scope="this-week" category=21]#_EVENTLINK - #_EVENTDATES at #_EVENTTIMES</br></br>[/events_list]'); ?>
+											<?php echo do_shortcode('[events_list limit="5" scope="this-week" category=21]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]'); ?>
 										</div>
 									</div>
 								</div>

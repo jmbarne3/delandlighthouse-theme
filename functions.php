@@ -68,7 +68,7 @@ class Announcement_Widget extends WP_Widget {
 //		    echo $args['after_title'];
   //  	}
 		
-    	$post_args = array('post_type' => 'announcement', 'posts_per_page' => $instance['num_announcements'], 'category_in' => explode(',', $instance['categories']));
+    	$post_args = array('post_type' => 'announcement', 'posts_per_page' => $instance['num_announcements'], 'category__in' => explode(',', $instance['categories']));
     	$loop = new WP_Query($post_args);
 
     	echo '<ul class="announcement-widget">';
@@ -78,7 +78,7 @@ class Announcement_Widget extends WP_Widget {
     			<li class="announcement-item"><a href="<?php echo get_permalink($post->id) ?>">  <?php the_title() ?></a></li>
     		<?php endwhile;
     	} else {
-    		echo '<li>' . $instance['no_announcements_text'] . '</li>';
+    		echo '<li class="announcement-item">' . $instance['no_announcements_text'] . '</li>';
     	}
 
     	echo '</ul>';
@@ -215,4 +215,7 @@ function my_em_scope_conditions($conditions, $args){
 		$conditions['scope'] = " (event_start_date BETWEEN CAST('$start_date' AS DATE) AND CAST('$end_date' AS DATE)) OR (event_end_date BETWEEN CAST('$end_date' AS DATE) AND CAST('$start_date' AS DATE))";
 	}
 	return $conditions;
-}?>
+}
+
+
+?>

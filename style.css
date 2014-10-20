@@ -57,12 +57,18 @@ Text Domain:	arcade
 }
 
 .basic a {
-  color: #886DDE;
+  color: #65A5DA;
+  -webkit-transition: color .35s ease-out;
+  -moz-transition: color .35s ease-out;
+  -o-transition: color .35s ease-out;
+  -ms-transition: color .35s ease-out;
+  transition: color .35s ease-out;
+
 }
 
 .basic a:hover, a:focus {
   color: #6B4BD0;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover.header-link,
@@ -171,6 +177,11 @@ a:hover.btn {
 }
 
 /* Footer Styles */
+
+footer {
+	min-width: 100%;
+}
+
 #footer h5 {
 	color: White;
 }
@@ -235,14 +246,14 @@ a:hover.btn {
    padding: .5em;
    color: #fff;
    margin-bottom: 0;
-   border-radius: 0.45em 0.45em 0 0;
+   border-radius: 4px 4px 0 0;
 }
 
 .events-space {
   background-color: rgba(238, 238, 238, 0.20);
   border: 1px solid #eee;
   padding: 0.75em;
-  border-radius: 0 0 0.45em 0.45em;
+  border-radius: 0 0 4px 4px;
   margin-bottom: 1.5em;
 }
 
@@ -251,20 +262,20 @@ a:hover.btn {
 }
 
 .nav-pills > li.active > a {
- background-color: #886DDE;
+ background-color: #428bca;
 }
 
 .nav-pills > li > a {
   padding: 10px 15px 10px 30px;
-  color: #886DDE;
+  color: #428bca;
 }
 
 .nav-pills > li > a:hover {
-  color: #886DDE;
+  color: #428bca;
 }
 
 .nav-pills > li.active > a:hover {
-  background-color: #886DDE;
+  background-color: #428bca;
 }
 
 .church-leaders > p.excerpt {
@@ -477,7 +488,7 @@ img[src*="googleapis.com/"] {
 
 #announcement-carousel {
 	overflow: hidden;
-	border-radius: 10px;
+	border-radius: 4px;
 	margin-top: 20px;
 }
 
@@ -526,3 +537,116 @@ a.carousel-control:hover {
 	}
 
 }
+
+.event-item
+{
+	padding: 1.0em;
+	border: 1px dotted #000;
+	margin-bottom: 1.5em;
+	border-radius: 5px;
+	background-color: rgba(230, 230, 230, 0.25);
+	width: 350px;
+}
+
+.event-item h3 {
+	text-align: center;
+	margin-top: 0;
+}
+
+.event-item h3 a {
+	color: #65A5DA;
+}
+
+.widget_em_widget ul {
+	list-style: none;
+	-webkit-padding-start: 0px;
+	-moz-padding-start: 0px;
+	-khtml-padding-start: 0px;
+	-o-padding-start: 0px;
+	padding-start: 0px;
+	padding: 0;
+	word-wrap: normal !important;
+}
+
+.widget_em_widget h5.event-title {
+	margin-top: 0.5em;
+	margin-bottom: 0.65em;
+}
+
+.widget_em_widget h5.event-title a {
+	color: #428bca;
+	font-weight: 700;
+	font-size: 1.25em;
+}
+
+.widget_em_widget h5.event-title a:hover,
+.widget_em_widget h5.event-title a:focus {
+	color: #6B4BD0;
+  	text-decoration: none;
+}
+
+.widget_em_widget p.event-date-day {
+	font-size: 1.5em;
+	font-weight: 700;
+	color: #428bca;
+	text-shadow: -1px -1px 1px #cacaca;
+	margin: 0 0 0 2px;
+	word-wrap: normal !important;
+}
+
+.widget_em_widget p.event-date-month {
+	text-transform: uppercase;
+	word-wrap: normal !important;
+}
+
+.widget_em_widget p.event-date-times {
+        font-size: 0.75em;
+}
+
+.widget_em_widget hr {
+	margin-top: 0px;
+	margin-bottom: 3px;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+}
+
+.events-space ul {
+        list-style: none;
+        -webkit-padding-start: 0px;
+}
+
+.events-space h5.event-title {
+        margin-top: 0.5em;
+        margin-bottom: 0.65em;
+	font-weight: 700;
+}
+
+.events-space h5.event-title a {
+        color: #428bca;
+	font-weight: 700;
+	font-size: 1.25em;
+}
+
+.events-space p.event-date-day {
+        font-size: 1.5em;
+        font-weight: 700;
+        color: #428bca;
+        text-shadow: -1px -1px 1px #cacaca;
+        margin: 0 0 0 2px;
+}
+
+.events-space p.event-date-month {
+        text-transform: uppercase;
+}
+
+.events-space p.event-date-times {
+	font-size: 0.75em;
+}
+
+.events-space hr {
+        margin-top: 0px;
+        margin-bottom: 3px;
+        border: 0;
+        border-top: 1px solid #eeeeee;
+}
+

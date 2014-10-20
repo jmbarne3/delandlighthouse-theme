@@ -47,8 +47,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 'pg_payment_card_expdate_year' => $expYear,             
                 'pg_api_login_id' => $apiLoginID                        
         );                                                      
-}
+} else {
+	if ($_GET['memo']) {
+		$memo = $_GET['memo'];
+	} else {
+		$memo = '';
+	}
 
+	if ($_GET['amount']) {
+		$amount = $_GET['amount'];
+	} else {
+		$amount = '0.00';
+	}
+}
 
 get_header();
 ?>
@@ -59,6 +70,20 @@ get_header();
 				<div class="col-md-12">
 					<form METHOD="POST" ACTION="<?php the_permalink(); ?>">
 						<?php $apiLoginId = 'esT77y1AC8'; ?>
+						<h3>General Information</h3>
+						<div class="row">
+							<div class="col-md-4">
+								<label for="tb_amount" class="control-label">Amount</label>
+								<input name="pg_total_amount" type="text" id="tb_amount" class="form-control" value='<?php echo $amount; ?>' />
+							</div>
+							<div class="col-md-4">
+								<label for="tb_memo" class="control-label">Memo</label>
+								<input name="pg_consumerorderid" type="text" id="tb_memo" class="form-control" value='<?php echo $memo; ?>' />
+							</div>
+							<div class="col-md-4">
+
+							</div>
+						</div>
 						<h3>Billing Information</h3>
 						<div class="row">
 							<div class="col-md-3">
