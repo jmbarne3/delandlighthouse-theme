@@ -100,7 +100,7 @@ a:hover.btn {
 
 .home-widget > a:hover > i,
 .home-widget > a:focus > i {
-  -webkit-transition:scale(1.05);
+-webkitse select the following only if it applies.</h5>-transition:scale(1.05);
   -moz-transition:scale(1.05);
   -o-transition:scale(1.05);
   transform:scale(1.05);
@@ -212,6 +212,31 @@ footer {
   text-decoration: none;
 }
 
+.announcement-news {
+  background-color: #efefef;
+  background-color: rgba(238, 238, 238, 0.20);
+  padding: 0.5em;
+  border: 1px solid #acacac;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px #acacac;
+  margin-top: 1.0em;
+}
+
+.announcement-news i {
+  color: #3411A6;
+  margin: 3px 6px 0 0;
+}
+
+.announcement-news h5 {
+  font-size: 1.25em; 
+  font-weight: 700;
+}
+
+.announcement-news h5 a {
+  color: #428bca;
+  margin-left: 6px;
+}
+
 .announcement-front-page a:hover, .announcement a:focus{
   color: #FFA500;
   text-decoration: none;
@@ -238,7 +263,6 @@ footer {
   font-size: 24px;
 }
 
-
 #events  h3 {
    font-family: Georgia, serif;
    font-weight: 750;
@@ -247,6 +271,7 @@ footer {
    color: #fff;
    margin-bottom: 0;
    border-radius: 4px 4px 0 0;
+   box-shadow: 2px 2px 1px #acacac;
 }
 
 .events-space {
@@ -255,6 +280,14 @@ footer {
   padding: 0.75em;
   border-radius: 0 0 4px 4px;
   margin-bottom: 1.5em;
+  box-shadow: 2px 2px 1px #acacac;
+}
+
+.events-space.alt {
+   background-color: rgba(238, 238, 238, 0.45);
+   border: 1px solid #acacac;
+   border-radius: 4px;
+   word-wrap: normal !important;
 }
 
 .nav-pills > li:first-child > a {
@@ -335,6 +368,10 @@ h2.widgettitle {
   margin-top: 0;
 }
 
+.img-rounded {
+  box-shadow: 2px 2px 1px #acacac;
+}
+
 .sidemenu {
   margin-bottom: 1.0em;
   border: 1px solid #efefef;
@@ -374,6 +411,7 @@ h2.widgettitle {
   background-color: #fff;
   border-radius: 4px;
   margin: 1.0em 0 1.0em 0;
+  box-shadow: 2px 2px 1px #acacac;
 }
 
 .blue-box h3 {
@@ -484,6 +522,7 @@ img[src*="googleapis.com/"] {
 
 .wp-caption p.wp-caption-text {
 	font-style: italic;
+	color: #aaa;
 }
 
 #announcement-carousel {
@@ -625,6 +664,11 @@ a.carousel-control:hover {
         color: #428bca;
 	font-weight: 700;
 	font-size: 1.25em;
+}
+
+.events-space h5.event-title a:hover,
+.events-space h5.event-title a:focus {
+	color: #886DDE;
 }
 
 .events-space p.event-date-day {

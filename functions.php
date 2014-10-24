@@ -3,6 +3,8 @@
 	require 'custom-post-types.php';
 	require 'custom-fields.php';
 
+	date_default_timezone_set('America/New_York');
+
 	function remove_version() { return ''; } add_filter('the_generator', 'remove_version');
 
 	function register_my_menu() {
@@ -217,5 +219,14 @@ function my_em_scope_conditions($conditions, $args){
 	return $conditions;
 }
 
+add_filter('em_events_build_sql_conditions', 'seven_days_scope', 1, 2);
+function seven_days_scope($conditions, $args) {
+	if ( !empty($args['scope']) && $args['scope'] == 'seven-days' ) {
+		$start_date = date('Y-m-d', strtotime('now', time()));
+		$end_date = date('Y-m-d', strtotime('+7 day', time()));	
+		$conditions['scope'] = " (event_start_date BETWEEN CAST('$start_date' AS DATE) AND CAST('$end_date' AS DATE)) OR (event_end_date BETWEEN CAST('$end_date' AS DATE) AND CAST('$start_date' AS DATE))";
+	}
+	return $conditions;
+}
 
 ?>

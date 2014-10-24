@@ -10,9 +10,7 @@
  * @since 1.0.0
  */
 get_header();
-wp_enqueue_script('masonry-js', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js');
 ?>
-
 	<div class="container">
 		<div class="row">
 			<div id="primary" <?php bavotasan_primary_attr(); ?>>

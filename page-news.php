@@ -64,8 +64,16 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 										if ($loop->have_posts()){
 											while ($loop->have_posts() ) : $loop->the_post(); ?>
 											<div class="col-md-6">
-												<div class="announcement-item">
-													<h4><i class="pull-left danger fa fa-thumb-tack"></i><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h4>
+												<div class="announcement-news">
+													<?php 
+														$annc_icon = 'fa-thumb-tack';
+														if (in_category('event-announcement', $post->id)) {
+															$annc_icon = 'fa-calendar';
+														} else if (in_category('news-story')) {
+															$annc_icon = 'fa-newspaper-o';
+														}
+													?>
+													<h5><i class="pull-left danger fa <?php echo $annc_icon; ?>"></i><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h5>
 													<?php 
 														$image = get_field('banner_image');
 														if ( !empty($image)): ?>
@@ -82,14 +90,6 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 										<?php } ?>
 								</div>
 							</div>
-							<script type="text/javascript">
-								jQuery(document).ready( function() {
-									jQuery('.fa').each( function (index) {
-										var color = '#' + (Math.random() * 0xFFFFFF<<0).toString(16);
-										jQuery(this).css('color', color);
-									});
-								});
-							</script>
 							<div class="col-md-4">
 								<div id="events">
 								<div class="row">
@@ -97,14 +97,7 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 										<h3>Upcoming Events</h3>
 										<div class="events-space">
 											<?php  echo do_shortcode('[events_list limit="10" scope="2-months" category=14]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]') ?>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<h3>Happening This Week</h3>
-										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="0" scope="this-week" category=57]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]') ?>
+										<h5 class="event-title" style="text-align:center"><a href="/events">See All Events</a></h5>
 										</div>
 									</div>
 								</div>
@@ -112,7 +105,17 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 									<div class="col-md-12">
 										<h3>Bible Studies This Week</h3>
 										<div class="events-space">
-											<?php echo do_shortcode('[events_list limit="5" scope="this-week" category=21]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]'); ?>
+											<?php echo do_shortcode('[events_list limit="5" scope="seven-days" category=21]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]'); ?>
+										<h5 class="event-title" style="text-align:center"><a href="/events">See All Events</a></h5>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<h3>Happening This Week</h3>
+										<div class="events-space">
+											<?php  echo do_shortcode('[events_list limit="0" scope="seven-days" category=57]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]') ?>
+										<h5 class="event-title" style="text-align:center"><a href="/events">See All Events</a></h5>
 										</div>
 									</div>
 								</div>

@@ -36,14 +36,14 @@ get_header(); ?>
 								$loc_name = get_the_title($location[0]);
 							?>
 								<p style="text-indent: 20px;"><a href='<?php echo $loc_url; ?>' target="_blank"><?php echo $loc_name ?></a></p>
-							<h3>Upcoming Meetings</h3>
+						</div>	
 							<?php 
 								$event_cat = get_field('event_category');
-								$events = EM_Events( array('limit' => 5, 'category' => $event_cat[0], 'format' => '<ul><li>#_EVENTDATES</li></ul>'));
+								the_widget('EM_Widget', 'title=Upcoming%20Events&category=' . implode(',', $event_cat) . '&format=<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />');
+
 								//the_widget('EM_Widget', 'title=Upcoming%20Meetings&category='. $event_cat[0]); 
 							?>	
 							</div>
-						</div>
 						<div class='col-md-8'>
 							<?php the_content(); ?>	
 						</div>

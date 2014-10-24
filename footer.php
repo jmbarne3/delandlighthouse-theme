@@ -24,16 +24,17 @@ $bavotasan_theme_options = bavotasan_theme_options();
 					</address>
 				</div>
 				<div class="col-md-3">
-					<h5>Call Us</h5>
+					<h5>Contact Us</h5>
 					<a href='tel:+<?php echo (get_option('qs_contact_phone')); ?>'>
 						<?php echo (get_option('qs_contact_phone')); ?>
-					</a>
+					</a><br/>
+					<a href="/contact-us/request-more-information/">Request More Information</a>
 				</div><!-- .col-lg-3 -->
 				<div class="col-lg-3">
-					<h5>Social Media</h5>
+					<h5>Connect with Us</h5>
 					<div class='btn-group'>
 						<a class="btn" style='padding: 0' href='<?php echo(get_option('qs_contact_facebook')); ?>' target="_blank"/><img src='<?php echo (get_option('qs_contact_facebook_icon')); ?>' alt='facebook' /></a>
-						<a class="btn" style='padding: 0' href='<?php echo (get_option('qs_contact_youtube')); ?>' target="_blank"/><img src='<?php echo (get_option('qs_contact_youtube_icon')); ?>' alt='youtube' /></a>
+						<!--<a class="btn" style='padding: 0' href='<?php echo (get_option('qs_contact_youtube')); ?>' target="_blank"/><img src='<?php echo (get_option('qs_contact_youtube_icon')); ?>' alt='youtube' /></a>-->
 					</div>
 				</div><!--.col-lg-3-->	
 				<div class="col-lg-3">
@@ -43,7 +44,7 @@ $bavotasan_theme_options = bavotasan_theme_options();
 						<dd>Hour of Power Service: 9:00 AM</dd>
 						<dd>Celebration Service: 10:30 AM</dd>
 					</dl>
-					<a href="/worship-services/">Details on Services</a>
+					<a href="/worship-services/">Service Details</a>
 				</div>
 			</div><!-- .row -->
 		</div><!-- #footer-content.container -->
