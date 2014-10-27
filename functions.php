@@ -23,7 +23,7 @@
 	}
 
 	add_action( 'widgets_init', 'events_widget_init');
-	
+
 /**
  * Adds Announcement Widget
  */
