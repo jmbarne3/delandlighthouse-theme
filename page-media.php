@@ -10,6 +10,8 @@
  * @since 1.0.0
  */
 get_header();
+wp_enqueue_style('flipclock-style', get_stylesheet_directory_uri() . '/flipclock.css');
+wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flipclock.min.js');
 ?>
 
 	<div class="container">
@@ -22,8 +24,41 @@ get_header();
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 
 					    <div class="entry-content description clearfix">
-						<div class="col-md-10">
-							<embed id="V2Player" width="640" height="480" type="application/x-shockwave-flash" src="http://http.vitalstreamcdn.com/flashskins/V2Player.swf" allowscriptaccess="sameDomain" allowfullscreen="true" quality="high" flashvars="stream1=worship&amp;autoPlay=True&amp;serverAppInstName=rtmp://LighthouseChurch.flash.internapcdn.net/LighthouseChurch/live_1&amp;debug=false" pluginspage="http://www.macromedia.com/go/getflashplayer">
+						<div class="col-md-9">
+							<?php if (date("l") == "Sunday" && (int)date('H', time()) > 9 && (int)date('H', time()) < 13) { ?>
+							<embed id="V2Player" width="640" height="480" type="application/x-shockwave-flash" src="http://http.vitalstreamcdn.com/flashskins/V2Player.swf" allowscriptaccess="sameDomain" allowfullscreen="true" quality="high" flashvars="stream1=worship&amp;autoPlay=True&amp;serverAppInstName=rtmp://LighthouseChurch.flash.internapcdn.net/LighthouseChurch/live_1&amp;debug=false" pluginspage="http://www.macromedia.com/go/getflashplayer"> <?php } else { 
+									$seconds = strtotime('next Sunday +9 hour') - time();
+							?>
+							<h3>Next Live Stream</h3>
+							<div id="stream-clock"></div>
+							<script type="text/javascript">
+								jQuery(document).ready( function() {
+									jQuery('#stream-clock').FlipClock(<?php echo $seconds; ?> , { 'autoStart' : 'true', 'countdown' : 'true', 'clockFace' : 'DailyCounter'});
+								});
+							</script>
+							<p>Our live stream is available Sunday's starting at 9:00 am for the Hour of Power service and continues at 10:30 am for the Celebration Service. Please join us then!</p>
+							<?php } ?>
+						</div>
+						<div class="col-md-3">
+							<div class="blue-box">
+								<h3>Recent Sermons</h3>
+								<?php 
+
+									$args = array(
+										'post_type' => 'podcast',
+										'post_status' => 'publish',
+										'series' => 'Sermons',
+										'posts_per_page' => 5
+									);
+
+									$query = new WP_Query($args); ?>
+									<ul>
+									<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+										<li class="announcement-item"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+									<?php endwhile; else : endif; ?>		
+									<li class="announcement-item"><a href="/podcast/">See All Sermons</a></li>		
+									</ul>
+							</div>
 						</div>
 					    </div><!-- .entry-content -->
 

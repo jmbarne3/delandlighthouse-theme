@@ -694,3 +694,6 @@ a.carousel-control:hover {
         border-top: 1px solid #eeeeee;
 }
 
+#stream-clock {
+	margin-top: 3.0em;
+}
