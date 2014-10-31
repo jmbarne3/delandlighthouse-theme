@@ -20,7 +20,7 @@ get_header(); ?>
                                         ?>
 
 					<div class="contact-box">
-						<ul class="contact-list">
+						<ul class="nav nav-pills">
 							<li><h4><?php echo $title; ?></h4></li>
 							<li><a href='tel:<?php echo $email; ?>'><?php echo $email; ?></a></li>
 						<?php if (!empty($phone)) : ?>

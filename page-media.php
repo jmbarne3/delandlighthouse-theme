@@ -26,15 +26,30 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 					    <div class="entry-content description clearfix">
 						<div class="col-md-9">
 							<?php if (date("l") == "Sunday" && (int)date('H', time()) > 9 && (int)date('H', time()) < 13) { ?>
-							<embed id="V2Player" width="640" height="480" type="application/x-shockwave-flash" src="http://http.vitalstreamcdn.com/flashskins/V2Player.swf" allowscriptaccess="sameDomain" allowfullscreen="true" quality="high" flashvars="stream1=worship&amp;autoPlay=True&amp;serverAppInstName=rtmp://LighthouseChurch.flash.internapcdn.net/LighthouseChurch/live_1&amp;debug=false" pluginspage="http://www.macromedia.com/go/getflashplayer"> <?php } else { 
+							<div id="ezv-stream-38db3aed920cf82ab059bfccbd02be6a"></div><script type="text/javascript" src="http://d15vbg8nyw71nw.cloudfront.net/jw.player/jwplayer.js"></script><script type="text/javascript" src="http://d3sporhxbkob1v.cloudfront.net/tlconfire/embed/live/tlconfire/tlconfire/embed.js"> </script>
+							<?php } else { 
 									$seconds = strtotime('next Sunday +9 hour') - time();
 							?>
+							<div id="stream-div" style="display: none;"><div id="ezv-stream-38db3aed920cf82ab059bfccbd02be6a"></div></div><script type="text/javascript" src="http://d15vbg8nyw71nw.cloudfront.net/jw.player/jwplayer.js"></script><script type="text/javascript" src="http://d3sporhxbkob1v.cloudfront.net/tlconfire/embed/live/tlconfire/tlconfire/embed.js"> </script>
+
 							<h3>Next Live Stream</h3>
 							<div id="stream-clock"></div>
 							<script type="text/javascript">
 								jQuery(document).ready( function() {
-									jQuery('#stream-clock').FlipClock(<?php echo $seconds; ?> , { 'autoStart' : 'true', 'countdown' : 'true', 'clockFace' : 'DailyCounter'});
+									var clock = jQuery('#stream-clock').FlipClock(<?php echo $seconds; ?>,  { 
+										'autoStart' : 'true', 
+										'countdown' : 'true', 
+										'clockFace' : 'DailyCounter',
+										'callbacks' : {
+											'stop' : timerEnd
+										}
+									});
 								});
+
+								function timerEnd() {
+									jQuery('#stream-clock').hide();
+									jQuery('#stream-div').show();
+								}
 							</script>
 							<p>Our live stream is available Sunday's starting at 9:00 am for the Hour of Power service and continues at 10:30 am for the Celebration Service. Please join us then!</p>
 							<?php } ?>

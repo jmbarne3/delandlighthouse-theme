@@ -290,7 +290,10 @@ footer {
    word-wrap: normal !important;
 }
 
-.nav-pills > li:first-child > a {
+.nav-pills > li:first-child > a,
+.nav-pills > li:first-child > h4 {
+  margin: 0;
+  line-height: 22px;
   padding: 10px 15px;
 }
 
