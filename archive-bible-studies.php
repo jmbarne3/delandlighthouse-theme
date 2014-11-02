@@ -25,17 +25,17 @@ get_header(); ?>
 							Bible Studies
 						</h1><!-- .page-title -->
 						<ul class="nav nav-pills">
+							<li><a href="#sunday-school">Sunday School</a></li>
 							<li><a href="#men-discipleship">Men's Discipleship</a></li>
 							<li><a href="#women-discipleship">Women's Discipleship</a></li>
-							<li><a href="#sunday-school">Sunday School</a></li>
 						</ul>
 					</header><!-- #archive-header -->
 
 					<?php
 					$cat_args=array(
 						'parent' => '21',
- 						'orderby' => 'name',
-						'order' => 'ASC'
+						'orderby' => 'id',
+						'order' => 'desc'
    						);
 					$categories=get_categories($cat_args);
   						foreach($categories as $category) { 

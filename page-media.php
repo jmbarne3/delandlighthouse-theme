@@ -27,8 +27,13 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 						<div class="col-md-9">
 							<?php if (date("l") == "Sunday" && (int)date('H', time()) > 9 && (int)date('H', time()) < 13) { ?>
 							<div id="ezv-stream-38db3aed920cf82ab059bfccbd02be6a"></div><script type="text/javascript" src="http://d15vbg8nyw71nw.cloudfront.net/jw.player/jwplayer.js"></script><script type="text/javascript" src="http://d3sporhxbkob1v.cloudfront.net/tlconfire/embed/live/tlconfire/tlconfire/embed.js"> </script>
-							<?php } else { 
-									$seconds = strtotime('next Sunday +9 hour') - time();
+							<?php } else {
+									$seconds;
+									if (date("l") == "Sunday" && (int)date("H", time()) < 9) {
+										$seconds = strtotime('today +9 hour') - time();
+									} else { 
+										$seconds = strtotime('next Sunday +9 hour') - time();
+									}
 							?>
 							<div id="stream-div" style="display: none;"><div id="ezv-stream-38db3aed920cf82ab059bfccbd02be6a"></div></div><script type="text/javascript" src="http://d15vbg8nyw71nw.cloudfront.net/jw.player/jwplayer.js"></script><script type="text/javascript" src="http://d3sporhxbkob1v.cloudfront.net/tlconfire/embed/live/tlconfire/tlconfire/embed.js"> </script>
 
