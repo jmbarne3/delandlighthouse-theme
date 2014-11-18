@@ -220,6 +220,7 @@ footer {
   border-radius: 4px;
   box-shadow: 1px 1px 2px #acacac;
   margin-top: 1.0em;
+  width: 340px;
 }
 
 .announcement-news i {
@@ -699,4 +700,9 @@ a.carousel-control:hover {
 
 #stream-clock {
 	margin-top: 3.0em;
+}
+
+.centered {
+	margin: 0 auto;
+	text-align: center;
 }

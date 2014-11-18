@@ -618,5 +618,51 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	register_field_group(array (
+		'id' => 'acf_news-article',
+		'title' => 'News Article',
+		'fields' => array (
+			array (
+				'key' => 'field_54636b6ecbe10',
+				'label' => 'Story Post',
+				'name' => 'story_post',
+				'type' => 'post_object',
+				'instructions' => 'Select the post of the news story.',
+				'post_type' => array (
+					0 => 'post',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'announcement',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+				array (
+					'param' => 'post_category',
+					'operator' => '==',
+					'value' => '66',
+					'order_no' => 1,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
 }
 ?>

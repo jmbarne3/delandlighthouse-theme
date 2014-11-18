@@ -12,6 +12,8 @@
 get_header();
 wp_enqueue_script('bootstrap-carousel', get_stylesheet_directory_uri() . '/js/bootstrap-carousel.js');
 wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
+wp_enqueue_script('masonry', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js');
+wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imagesloaded.pkgd.min.js');
 ?>
 
 	<div class="container">
@@ -54,8 +56,8 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 									 <a class="carousel-control left" href="#announcement-carousel" role="button" data-slide="prev">&lsaquo;</a>
 									 <a class="carousel-control right" href="#announcement-carousel" role="button"  data-slide="next">&rsaquo;</a>
 								</div>
-								<div class="row">
 									<div class="section-heading"><h2>Announcements</h2></div>
+								<div class="js-masonry" id="container" data-masonry-options='{ "columnWidth": 340, "gutter" : 10,  "itemSelector": ".announcement-news", "isFitWidth" : "true" }' >
 									<?php 
 										$today = current_time('mysql');
 										$post_args = array('post_type' => 'announcement', 'meta_query' => array ( array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today, 'type' => 'date')));
@@ -63,26 +65,29 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 										$loop = new WP_Query($post_args);
 										if ($loop->have_posts()){
 											while ($loop->have_posts() ) : $loop->the_post(); ?>
-											<div class="col-md-6">
+											<!--<div class="col-md-6">-->
 												<div class="announcement-news">
 													<?php 
 														$annc_icon = 'fa-thumb-tack';
 														if (in_category('event-announcement', $post->id)) {
 															$annc_icon = 'fa-calendar';
-														} else if (in_category('news-story')) {
+														} else if (in_category('news-story', $post->id)) {
 															$annc_icon = 'fa-newspaper-o';
 														}
 													?>
 													<h5><i class="pull-left danger fa <?php echo $annc_icon; ?>"></i><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h5>
-													<?php 
+													<?php if (in_category('news-story', $post->id)) : 	
+														$post_obj = get_field('story_post', $post->id);
+														$perm = get_post_permalink($post_obj->ID);
 														$image = get_field('banner_image');
-														if ( !empty($image)): ?>
-															<img class="img-rounded" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-													<?php endif; ?>
+														if ( !empty($image)): $img = $image['sizes']['large']; ?>
+															<a href="<?php echo $perm; ?>">
+																<img class="img-responsive" src="<?php echo $img ?>" alt="<?php echo $image['alt']; ?>" />
+															</a>
+													<?php endif;  endif; ?>
 													<p><?php the_excerpt(); ?></p>
 												</div>
-											</div>
-											<?php if ($loop->current_post % 2 == 0) { } else { ?><div class="clearfix visible-md visible-lg"></div><?php } ?>
+											<!--</div>-->
 											<?php endwhile; ?>
 
 										<?php } else { ?>
@@ -90,6 +95,18 @@ wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
 										<?php } ?>
 								</div>
 							</div>
+								<script type="text/javascript">
+									jQuery(document).ready( function() {
+										var container = document.querySelector('#container');
+										var msnry;
+										// initialize Masonry after all images have loaded
+										imagesLoaded( container, function() {
+										  msnry = new Masonry( container, {
+										  	"columnWidth": 340, "gutter" : 10,  "itemSelector": ".announcement-news", "isFitWidth" : "true"
+										  } );
+										});
+									});
+								</script>
 							<div class="col-md-4">
 								<div id="events">
 								<div class="row">
