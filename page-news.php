@@ -60,7 +60,7 @@ wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imageslo
 								<div class="js-masonry" id="container" data-masonry-options='{ "columnWidth": 340, "gutter" : 10,  "itemSelector": ".announcement-news", "isFitWidth" : "true" }' >
 									<?php 
 										$today = current_time('mysql');
-										$post_args = array('post_type' => 'announcement', 'meta_query' => array ( array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today, 'type' => 'date')));
+										$post_args = array('post_type' => 'announcement', 'category_name' => 'churchwide', 'meta_query' => array ( array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today, 'type' => 'date')));
 
 										$loop = new WP_Query($post_args);
 										if ($loop->have_posts()){
