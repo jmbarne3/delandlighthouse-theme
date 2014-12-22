@@ -1,7 +1,9 @@
 <?php
 
 	require 'custom-post-types.php';
+	require 'custom-taxonomies.php';
 	require 'custom-fields.php';
+	require 'shortcodes.php';
 
 	function remove_version() { return ''; } add_filter('the_generator', 'remove_version');
 
