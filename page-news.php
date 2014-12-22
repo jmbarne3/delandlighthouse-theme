@@ -26,8 +26,36 @@ wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imageslo
 						<div class="row">
 							<div class="col-md-8">
 								<?php
-									echo do_shortcode('[slideshow slideshow="news" col_size="12"]');
+									$imagesRaw = get_field('carousel_images', $post->ID);
+									$images = explode('<br />', $imagesRaw);
 								?>
+								<div id="announcement-carousel" class="carousel slide" data-ride="carousel">
+									<ol class="carousel-indicators">
+										<?php 
+											for($i = 0; $i < count($images); $i++) {
+												if ($i == 0) {
+													echo '<li data-target="#announcement-carousel" data-slide-to="' . $i . '" class="active"></li>';
+												} else {
+													echo '<li data-target="#announcement-carousel" data-slide-to="' . $i . '"></li>';
+												}
+											}
+										?>
+									</ol>
+									<div class="carousel-inner">
+										<?php 
+											foreach($images as $index => $image) {
+												$split = explode(',', $image);
+												if ($index != 0) {
+													echo '<div class="item"><a href="' . $split[1] . '" target="_blank"><img src="' . $split[0] . '" alt="announcement" class="responsive-img"/></a></div>';
+												} else {
+													echo '<div class="item active"><a href="' . $split[1] . '" target="_blank"><img src="' . $split[0] . '" alt="announcement" class="responsive-img" /></a></div>';
+												}
+											}
+										?>
+									</div>
+									 <a class="carousel-control left" href="#announcement-carousel" role="button" data-slide="prev">&lsaquo;</a>
+									 <a class="carousel-control right" href="#announcement-carousel" role="button"  data-slide="next">&rsaquo;</a>
+								</div>
 								<div class="section-heading"><h2>Announcements</h2></div>
 									<div class="js-masonry" id="container" data-masonry-options='{ "columnWidth": 340, "gutter" : 10,  "itemSelector": ".announcement-news", "isFitWidth" : "true" }' >
 										<?php 

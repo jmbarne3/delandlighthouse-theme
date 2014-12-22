@@ -664,5 +664,88 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	register_field_group(array (
+		'id' => 'acf_slide-fields',
+		'title' => 'Slide Fields',
+		'fields' => array (
+			array (
+				'key' => 'field_54983259ecc5e',
+				'label' => 'Slide Image',
+				'name' => 'slide_image',
+				'type' => 'image',
+				'instructions' => 'The slide to be displayed in the slideshow.',
+				'required' => 1,
+				'save_format' => 'object',
+				'preview_size' => 'large',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_549847e57753b',
+				'label' => 'Slide Link',
+				'name' => 'slide_link',
+				'type' => 'text',
+				'instructions' => 'The page the image should link to when clicked.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_54983272ecc5f',
+				'label' => 'Alt Text',
+				'name' => 'alt_text',
+				'type' => 'text',
+				'instructions' => 'The text to be processed by screen readers.',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_54983286ecc60',
+				'label' => 'Caption HTML',
+				'name' => 'caption_html',
+				'type' => 'wysiwyg',
+				'instructions' => 'The optional html to be displayed in the image\'s caption area.',
+				'default_value' => '',
+				'toolbar' => 'full',
+				'media_upload' => 'yes',
+			),
+			array (
+				'key' => 'field_549832aeecc61',
+				'label' => 'Expiration Date',
+				'name' => 'expiration_date',
+				'type' => 'date_picker',
+				'instructions' => 'The date the slide expires.',
+				'required' => 1,
+				'date_format' => 'yymmdd',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'slides',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
 }
 ?>
