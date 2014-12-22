@@ -28,45 +28,45 @@ wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imageslo
 								<?php
 									echo do_shortcode('[slideshow slideshow="news" col_size="12"]');
 								?>
-							<div class="section-heading"><h2>Announcements</h2></div>
-								<div class="js-masonry" id="container" data-masonry-options='{ "columnWidth": 340, "gutter" : 10,  "itemSelector": ".announcement-news", "isFitWidth" : "true" }' >
-									<?php 
-										$today = current_time('mysql');
-										$post_args = array('post_type' => 'announcement', 'category_name' => 'churchwide', 'meta_query' => array ( array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today, 'type' => 'date')));
+								<div class="section-heading"><h2>Announcements</h2></div>
+									<div class="js-masonry" id="container" data-masonry-options='{ "columnWidth": 340, "gutter" : 10,  "itemSelector": ".announcement-news", "isFitWidth" : "true" }' >
+										<?php 
+											$today = current_time('mysql');
+											$post_args = array('post_type' => 'announcement', 'category_name' => 'churchwide', 'meta_query' => array ( array ( 'key' => 'expiration_date', 'compare' => '>', 'value' => $today, 'type' => 'date')));
 
-										$loop = new WP_Query($post_args);
-										if ($loop->have_posts()){
-											while ($loop->have_posts() ) : $loop->the_post(); ?>
-											<!--<div class="col-md-6">-->
-												<div class="announcement-news">
-													<?php 
-														$annc_icon = 'fa-thumb-tack';
-														if (in_category('event-announcement', $post->id)) {
-															$annc_icon = 'fa-calendar';
-														} else if (in_category('news-story', $post->id)) {
-															$annc_icon = 'fa-newspaper-o';
-														}
-													?>
-													<h5><i class="pull-left danger fa <?php echo $annc_icon; ?>"></i><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h5>
-													<?php if (in_category('news-story', $post->id)) : 	
-														$post_obj = get_field('story_post', $post->id);
-														$perm = get_post_permalink($post_obj->ID);
-														$image = get_field('banner_image');
-														if ( !empty($image)): $img = $image['sizes']['large']; ?>
-															<a href="<?php echo $perm; ?>">
-																<img class="img-responsive" src="<?php echo $img ?>" alt="<?php echo $image['alt']; ?>" />
-															</a>
-													<?php endif;  endif; ?>
-													<p><?php the_excerpt(); ?></p>
-												</div>
-											<!--</div>-->
-											<?php endwhile; ?>
+											$loop = new WP_Query($post_args);
+											if ($loop->have_posts()){
+												while ($loop->have_posts() ) : $loop->the_post(); ?>
+												<!--<div class="col-md-6">-->
+													<div class="announcement-news">
+														<?php 
+															$annc_icon = 'fa-thumb-tack';
+															if (in_category('event-announcement', $post->id)) {
+																$annc_icon = 'fa-calendar';
+															} else if (in_category('news-story', $post->id)) {
+																$annc_icon = 'fa-newspaper-o';
+															}
+														?>
+														<h5><i class="pull-left danger fa <?php echo $annc_icon; ?>"></i><a href='<?php echo get_permalink($post->id) ?>' /><?php the_title(); ?></a></h5>
+														<?php if (in_category('news-story', $post->id)) : 	
+															$post_obj = get_field('story_post', $post->id);
+															$perm = get_post_permalink($post_obj->ID);
+															$image = get_field('banner_image');
+															if ( !empty($image)): $img = $image['sizes']['large']; ?>
+																<a href="<?php echo $perm; ?>">
+																	<img class="img-responsive" src="<?php echo $img ?>" alt="<?php echo $image['alt']; ?>" />
+																</a>
+														<?php endif;  endif; ?>
+														<p><?php the_excerpt(); ?></p>
+													</div>
+												<!--</div>-->
+												<?php endwhile; ?>
 
-										<?php } else { ?>
-											<div class="col-md-12"><h4>No Announcements</h4></div>
-										<?php } ?>
+											<?php } else { ?>
+												<div class="col-md-12"><h4>No Announcements</h4></div>
+											<?php } ?>
+									</div>
 								</div>
-							</div>
 								<script type="text/javascript">
 									jQuery(document).ready( function() {
 										var container = document.querySelector('#container');
