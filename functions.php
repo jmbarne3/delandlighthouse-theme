@@ -1,7 +1,9 @@
 <?php
 
 	require 'custom-post-types.php';
+	require 'custom-taxonomies.php';
 	require 'custom-fields.php';
+	require 'shortcodes.php';
 
 	date_default_timezone_set('America/New_York');
 
