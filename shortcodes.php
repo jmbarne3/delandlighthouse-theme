@@ -31,6 +31,8 @@ if ( ! function_exists('sc_slideshow') ) {
 				'field' => 'slug',
 				'terms' => $slideshow,
 			),
+			'orderby' => 'post_date',
+			'order' => 'ASC',
 			'meta_value' => $todayDate,
 			'meta_compare' => '<',
 			'meta_field' => 'expiration_date',
