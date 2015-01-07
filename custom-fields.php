@@ -724,7 +724,7 @@ if(function_exists("register_field_group"))
 				'instructions' => 'The date the slide expires.',
 				'required' => 1,
 				'date_format' => 'yymmdd',
-				'display_format' => 'dd/mm/yy',
+				'display_format' => 'mm/dd/yy',
 				'first_day' => 1,
 			),
 		),

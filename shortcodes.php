@@ -21,7 +21,7 @@ if ( ! function_exists('sc_slideshow') ) {
 
 		$col_size = 'col-md-'.$col_size;
 
-		$todayDate = date('yymmdd');
+		$todayDate = date('Ymd');
 
 		$args = array (
 			'posts_per_page' => 100,
@@ -33,9 +33,6 @@ if ( ! function_exists('sc_slideshow') ) {
 			),
 			'orderby' => 'post_date',
 			'order' => 'ASC',
-			'meta_value' => $todayDate,
-			'meta_compare' => '<',
-			'meta_field' => 'expiration_date',
 		);
 
 		$slides = get_posts($args);
@@ -55,6 +52,7 @@ if ( ! function_exists('sc_slideshow') ) {
 					</ol>
 					<div class="carousel-inner" role="listbox">
 					<?php foreach ($slides as $key=>$slide) { 
+						if ( get_field( 'expiration_date', $slide->ID ) > $todayDate ) :
 							$slide_image = get_field('slide_image', $slide->ID)['sizes']['large'];
 							$alt_text = get_field('alt_text', $slide->ID);
 							$href = get_field('slide_link', $slide->ID);
@@ -68,7 +66,7 @@ if ( ! function_exists('sc_slideshow') ) {
 								</div>
 							<?php endif; ?>
 						</div>
-					<?php } ?>
+					<?php endif; } ?>
 					</div>
 					<a class="left carousel-control" href="#<?php echo $carousel_id; ?>" role="button" data-slide="prev">
 						&lsaquo;
