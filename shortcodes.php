@@ -21,7 +21,7 @@ if ( ! function_exists('sc_slideshow') ) {
 
 		$col_size = 'col-md-'.$col_size;
 
-		$todayDate = date('Ymd');
+		$today = current_time('mysql');
 
 		$args = array (
 			'posts_per_page' => 100,
@@ -33,6 +33,14 @@ if ( ! function_exists('sc_slideshow') ) {
 			),
 			'orderby' => 'post_date',
 			'order' => 'ASC',
+			'meta_query' => array( 
+				array( 
+					'key' => 'expiration_date', 
+					'compare' => '>', 
+					'value' => $today, 
+					'type' => 'date'
+				)
+			)
 		);
 
 		$slides = get_posts($args);
@@ -52,11 +60,10 @@ if ( ! function_exists('sc_slideshow') ) {
 					</ol>
 					<div class="carousel-inner" role="listbox">
 					<?php foreach ($slides as $key=>$slide) { 
-						if ( get_field( 'expiration_date', $slide->ID ) > $todayDate ) :
-							$slide_image = get_field('slide_image', $slide->ID)['sizes']['large'];
-							$alt_text = get_field('alt_text', $slide->ID);
-							$href = get_field('slide_link', $slide->ID);
-							$caption = get_field('caption_html', $slide->ID);
+						$slide_image = get_field('slide_image', $slide->ID)['sizes']['large'];
+						$alt_text = get_field('alt_text', $slide->ID);
+						$href = get_field('slide_link', $slide->ID);
+						$caption = get_field('caption_html', $slide->ID);
 					?>
 						<div class="item <?php if ( $key == 0 ): echo 'active'; endif; ?>">
 							<a href="<?php echo $href; ?>"><img src="<?php echo $slide_image; ?>" alt="<?php echo $alt_text; ?>"></a>
@@ -66,7 +73,7 @@ if ( ! function_exists('sc_slideshow') ) {
 								</div>
 							<?php endif; ?>
 						</div>
-					<?php endif; } ?>
+					<?php } ?>
 					</div>
 					<a class="left carousel-control" href="#<?php echo $carousel_id; ?>" role="button" data-slide="prev">
 						&lsaquo;
