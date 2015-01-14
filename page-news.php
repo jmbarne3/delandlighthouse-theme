@@ -85,7 +85,7 @@ wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imageslo
 									<div class="col-md-12">
 										<h3>Upcoming Events</h3>
 										<div class="events-space">
-											<?php  echo do_shortcode('[events_list limit="10" scope="2-months" category_name="featured"]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]') ?>
+											<?php  echo do_shortcode('[events_list limit="10" scope="2-months" category="Featured"]<div class="col-xs-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]') ?>
 										<h5 class="event-title" style="text-align:center"><a href="/events">See All Events</a></h5>
 										</div>
 									</div>
