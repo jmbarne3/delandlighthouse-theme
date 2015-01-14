@@ -297,7 +297,7 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 
 			<?php 
 				$args = array(
-					'category_name'  => 'News Story',
+					'category_name'  => 'Email Story',
 					'posts_per_page'     => 1,
 				);
 
