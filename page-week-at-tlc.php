@@ -12,6 +12,7 @@
 
 define(EVENTS_URL, 'http://delandlighthouse.com/events/');
 define(NEWS_URL, 'http://delandlighthouse.com/news/');
+define(VERSE_URL, 'https://www.biblegateway.com/votd/get/?format=json');
 $start_date = getdate();
 $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 
@@ -308,7 +309,7 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 
 			?>
 			<tr>
-				<td class="ccollapse100p" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:15px;padding-bottom:15px;font-size:24px;font-weight:200;text-align:center">
+				<td class="ccollapse100p" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:15px;padding-bottom:15px;font-size:24px;font-weight:200;text-align:center;color:#428bca !important;">
 					<?php echo $hl_post[0]->post_title; ?>
 				</td>
 			</tr>
@@ -344,7 +345,7 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 			?>
 
 			<tr>
-				<td class="ccollapse100p" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:15px;padding-bottom:15px;font-size:24px;font-weight:200;text-align:center">
+				<td class="ccollapse100p" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:15px;padding-bottom:15px;font-size:24px;font-weight:200;text-align:center;color:#428bca !important;">
 					Upcoming Events
 				</td>
 			</tr>
@@ -399,7 +400,7 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 				if ( $bs_output ) :
 			?>
 			<tr>
-				<td class="ccollapse100p" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:15px;padding-bottom:15px;font-size:24px;font-weight:200;text-align:center">
+				<td class="ccollapse100p" style="border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding-top:15px;padding-bottom:15px;font-size:24px;font-weight:200;text-align:center;color:#428bca !important;">
 					Bible Studies this Week
 				</td>
 			</tr>
@@ -438,6 +439,27 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 						<a href="<?php echo NEWS_URL; ?>">See More Bible Studies</a>
 					</td>
 				</tr>
+			<?php endif; ?>
+
+			<?php 
+				$feed = file_get_contents(VERSE_URL);
+				$json = json_decode($feed);
+
+				if ( $json ) :
+			?>
+			<tr>
+				<td class="ccollapse100" width="600" border="0" align="center" cellpadding="0" bgcolor="#FFF" style="padding-top:15px;padding-bottom:15px;border-top:1px solid #ddd;border-bottom:1px solid #dddddd;font-size:24px;font-weight:200;color:#428bca !important;">
+					Verse of the Day
+				</td>
+			</tr>
+			<tr>
+				<td class="ccollapse100" width="600" border="0" align="center" cellpadding="0" bgcolor="#FFF" style="padding-top:15px;padding-bottom:15px;border-top:1px solid #ddd;border-bottom:1px solid #dddddd;">
+						<p><?php echo $json->votd->text; ?></p>
+						<p> - <?php echo $json->votd->reference; ?></p>
+				</td>
+
+			</tr>
+
 			<?php endif; ?>
 		</table>
 	</body>
