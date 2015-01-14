@@ -706,3 +706,47 @@ a.carousel-control:hover {
 	margin: 0 auto;
 	text-align: center;
 }
+
+.sidebar { margin-bottom: 20px; }
+.sidebar-inner { padding: 30px; }
+
+.sidebar-inner blockquote.quote:before {
+    font-size: 28px;
+    line-height: 38px;
+    left: -12px;
+}
+
+.sidebar-inner blockquote,
+.sidebar-inner blockquote p {
+  font-size: 28px;
+  line-height: 38px;
+}
+.sidebar-inner blockquote small {
+  font-size: 16px;
+  line-height: 22px;
+  margin-top: 14px;
+}
+.sidebar-inner blockquote.quote { padding-left: 0; }
+
+.callout { margin-top: 30px; margin-bottom: 40px; }
+.callout-inner { padding: 30px 0; text-align: center; }
+.callout-inner > p:empty,
+.sidebar-inner > p:empty {
+  /* kill_empty_p_tags won't work for these shortcodes :( */
+  display: none;
+}
+.callout-inner > div {
+  /* Force centering of wrapper divs by default */
+  margin-left: auto;
+  margin-right: auto;
+}
+.callout-inner > *,
+.sidebar-inner > * {
+  /* Try to eliminate excess spacing between callout/sidebar and inner element */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.callout-inner blockquote p,
+.sidebar-inner blockquote p {
+  margin-bottom: 0;
+}

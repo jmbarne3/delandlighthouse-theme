@@ -86,5 +86,68 @@ if ( ! function_exists('sc_slideshow') ) {
 	add_shortcode('slideshow', 'sc_slideshow');
 
 }
+/**
+ * Wrap arbitrary text in <blockquote>
+ **/
+function sc_blockquote($attr, $content='') {
+	$source = $attr['source'] ? $attr['source'] : null;
+	$cite = $attr['cite'] ? $attr['cite'] : null;
+    $color = $attr['color'] ? $attr['color'] : null;
+	$html = '<blockquote';
+	if ($source) {
+		$html .= ' class="quote"';
+	}
+    if ($color) {
+        $html .= ' style="color: ' . $color . '"';
+    }
+	$html .= '><p';
+    if ($color) {
+        $html .= ' style="color: ' . $color . '"';
+    }
+    $html .= '>'.$content.'</p>';
+	if ($source || $cite) {
+		$html .= '<small';
+        if ($color) {
+            $html .= ' style="color: ' . $color . '"';
+        }
+        $html .= '>';
+		if ($source) {
+			$html .= $source;
+		}
+		if ($cite) {
+			$html .= '<cite title="'.$cite.'">'.$cite.'</cite>';
+		}
+		$html .= '</small>';
+	}
+	$html .= '</blockquote>';
+	return $html;
+}
+add_shortcode('blockquote', 'sc_blockquote');
+
+function sc_sidebar($attr, $content) {
+	$pull = ($attr['position'] == ('left' || 'right')) ? 'pull-'.$attr['position'] : 'pull-right';
+	$bgcolor = $attr['background'] ? $attr['background'] : '#f0f0f0';
+	$content = do_shortcode($content);
+	$html = '<div class="col-md-4 '.$pull.' sidebar">';
+	$html .= '<section class="sidebar-inner" style="background-color: '.$bgcolor.';">'.$content.'</section>';
+	$html .= '</div>';
+	return $html;
+}
+add_shortcode('sidebar', 'sc_sidebar');
+
+/**
+ * Create a full-width callout box.
+ **/
+function sc_callout($attr, $content) {
+	$bgcolor = $attr['background'] ? $attr['background'] : '#f0f0f0';
+	$content = do_shortcode($content);
+	// Close out our existing .span, .row and .container
+	$html .= '<div class="container-wide callout" style="background-color: '.$bgcolor.';">';
+	$html .= '<div class="container"><div class="row content-wrap"><div class="span10 offset1 callout-inner">';
+	$html .= $content;
+	$html .= '</div></div></div></div>';
+	return $html;
+}
+add_shortcode('callout', 'sc_callout');
 
 ?>

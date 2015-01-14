@@ -4,8 +4,11 @@
 	require 'custom-taxonomies.php';
 	require 'custom-fields.php';
 	require 'shortcodes.php';
+	require 'includes/weather.php';
 
 	date_default_timezone_set('America/New_York');
+
+	add_image_size( 'email-top-story', 600, 400, true );
 
 	function remove_version() { return ''; } add_filter('the_generator', 'remove_version');
 
