@@ -42,10 +42,11 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 			* {zoom:1;}
 			a {color:#993300;text-decoration:none;}
 			div, p, a, li, td { -webkit-text-size-adjust:none; } /* ios likes to enforce a minimum font size of 13px; kill it with this */
-			p.month, p.date, p.start, p.end { margin-top: 0; margin-bottom: 5px; text-align: center; }
-			p.month { color: #428bca; }
-			p.date { color: #777; }
-			p.permalink { text-align:center; } 
+			p[class="event"] { margin: 0; }
+			.month, .date, .start, .end { margin-top: 0; margin-bottom: 5px; text-align: center; padding: 0; }
+			.month { color: #428bca; }
+			.date { color: #777; }
+			.permalink { text-align:center; } 
 			@media all and (max-width: 640px) {
 				/* The outermost wrapper table */
 				table[class="t600o"] {
@@ -351,22 +352,20 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 			<?php
 				foreach ( $ue_output as $item ) { ?>
 					<tr>
-						<td style="padding-top:30px;border-bottom:1px solid #dddddd;">
+						<td style="padding-top:15px;padding-bottom:15px;border-bottom:1px solid #dddddd;">
 							<table class="t600" width="600" border="0" align="center" cellpadding="0" bgcolor="#FFF" cellspacing="50" style="width: 600px; margin:0; background-color:#FFF;">
 								<tr>
 									<td class="ccollapse100" style="width:100px;font-size:24px;font-weight:200;">
 										<?php 
 											$start_date = new DateTime($item->event_start_date);
-											echo '<p class="month">' . $start_date->format('M') . '</p>';
-											echo '<p class="date">' . $start_date->format('d') . '</p>';
+											echo '<p class="event"><span class="month">' . $start_date->format('M') . '</span>  <span class="date">'. $start_date->format('d') . '</span></p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:100px;font-size:14px;font-weight:200;">
 										<?php
 											$start_time = new DateTime($item->event_start_time);
 											$end_time = new DateTime($item->event_end_time);
-											echo '<p class="start">' . $start_time->format('h:i A') . ' - </p>';
-											echo '<p class="end">' . $end_time->format('h:i A') . '</p>';
+											echo '<p class="event">' . $start_time->format('h:i A') . ' - ' . $end_time->format('h:i A') . '</p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:450px;font-size:24px;font-weight:200;">
@@ -381,7 +380,7 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 				<?php } ?>
 
 				<tr>
-					<td style="padding-top:30px;padding-bottom:30px;border-bottom:1px solid #dddddd;text-align:center">
+					<td style="padding-top:15px;padding-bottom:15px;border-bottom:1px solid #dddddd;text-align:center">
 						<a href="<?php echo NEWS_URL; ?>">See More Events</a>
 					</td>
 				</tr>
@@ -408,22 +407,20 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 
 				foreach ( $bs_output as $item ) { ?>
 					<tr>
-						<td style="padding-top:30px;border-bottom:1px solid #dddddd;">
+						<td style="padding-top:15px;padding-bottom:15px;border-bottom:1px solid #dddddd;">
 							<table class="t600" width="600" border="0" align="center" cellpadding="0" bgcolor="#FFF" cellspacing="50" style="width: 600px; margin:0; background-color:#FFF;">
 								<tr>
 									<td class="ccollapse100" style="width:100px;font-size:24px;font-weight:200;">
 										<?php 
 											$start_date = new DateTime($item->event_start_date);
-											echo '<p class="month">' . $start_date->format('M') . '</p>';
-											echo '<p class="date">' . $start_date->format('d') . '</p>';
+											echo '<p class="event"><span class="month">' . $start_date->format('M') . '</span>  <span class="date">'. $start_date->format('d') . '</span></p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:100px;font-size:14px;font-weight:200;">
 										<?php
 											$start_time = new DateTime($item->event_start_time);
 											$end_time = new DateTime($item->event_end_time);
-											echo '<p class="start">' . $start_time->format('h:i A') . ' - </p>';
-											echo '<p class="end">' . $end_time->format('h:i A') . '</p>';
+											echo '<p class="event">' . $start_time->format('h:i A') . ' - ' . $end_time->format('h:i A') . '</p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:450px;font-size:24px;font-weight:200;">
