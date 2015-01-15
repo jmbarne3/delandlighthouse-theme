@@ -31,7 +31,7 @@ if ( ! function_exists('sc_slideshow') ) {
 				'field' => 'slug',
 				'terms' => $slideshow,
 			),
-			'orderby' => 'post_date',
+			'orderby' => 'order',
 			'order' => 'ASC',
 			'meta_query' => array( 
 				array( 
