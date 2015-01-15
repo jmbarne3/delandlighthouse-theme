@@ -15,7 +15,6 @@ get_header(); ?>
 					<div class='row'>
 						<div class='col-md-4'>
 							<div class='bible-study-sidebar'>
-							<h3>Leader</h3>
 							<?php
 								$leader = get_field('leader');
 
@@ -24,6 +23,7 @@ get_header(); ?>
 								$url = get_the_permalink($leader[0]);
 								$name = get_the_title($leader[0]);
 							?>
+							<h3>Leader</h3>
 								<p style="text-indent: 20px;"><a href='<?php echo $url; ?>' target="_blank"> <?php echo $name; ?></a></p>
 
 							<?php endif; ?>
