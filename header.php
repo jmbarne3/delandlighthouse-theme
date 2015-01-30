@@ -42,7 +42,7 @@ $space_class = '';
 	<div id="page">
 		<?php if (!$_GET['noheader']) { ?>
 		<header id="header">
-			<nav id="site-navigation" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<nav id="site-navigation" class="navbar navbar-inverse black navbar-fixed-top" role="navigation">
 				<h3 class="sr-only"><?php _e( 'Main menu', 'arcade' ); ?></h3>
 				<a class="sr-only" href="#primary" title="<?php esc_attr_e( 'Skip to content', 'arcade' ); ?>"><?php _e( 'Skip to content', 'arcade' ); ?></a>
 				<div class="navbar-header">
