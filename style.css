@@ -764,7 +764,7 @@ p.lead:first-letter { display: block; float: left; margin: 8px 8px 0 0; font-siz
   margin-top: -76px;
 }
 
-@media (min-width: 786px) {
+@media (max-width: 786px) {
   .wide-image {
     margin-top: -80px;
   }
