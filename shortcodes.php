@@ -166,7 +166,7 @@ function sc_callout($attr, $content) {
 }
 add_shortcode('callout', 'sc_callout');
 
-function sc_wide_image($attr, $content) {
+function sc_wide_image_top($attr, $content) {
 	$content = do_shortcode($content);
 	$html .= '</div></div></div></div>';
 	$html .= '<div class="container-wide wide-image">';
@@ -175,6 +175,6 @@ function sc_wide_image($attr, $content) {
 	$html .= '<div class="container"><div class="row"><div class="col-md-12"><div class="entry-content description clearfix">';
 	return $html;
 }
-add_shortcode('wide-image', 'sc_wide_image');
+add_shortcode('wide-image-top', 'sc_wide_image_top');
 
 ?>
