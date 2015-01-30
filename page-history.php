@@ -55,9 +55,9 @@ if (isset($_GET['json'])) {
 	return;
 
 	} else { get_header();
-		wp_enqueue_style('timeline-css', 'https://cdn.knightlab.com/libs/timeline/latest/css/timeline.css');
-		wp_enqueue_script('timeline-min-js', 'https://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js');
-		wp_enqueue_script('story-js-embed', 'https://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js');
+		wp_enqueue_style('timeline-css', 'http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css');
+		wp_enqueue_script('timeline-min-js', 'http://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js');
+		wp_enqueue_script('story-js-embed', 'http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js');
 	} ?>
 
 				<div id="timeline"></div>
