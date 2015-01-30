@@ -341,7 +341,7 @@ if ( ! function_exists('create_slides_custom_post_type') ) {
 			'label'               => __( 'slides', 'text_domain' ),
 			'description'         => __( 'Contains information about slideshow slides.', 'text_domain' ),
 			'labels'              => $labels,
-			'supports'            => array( 'title', 'thumbnail', 'custom-fields', ),
+			'supports'            => array( 'title', 'thumbnail', 'custom-fields', 'page-attributes' ),
 			'taxonomies'          => array( 'slideshows' ),
 			'hierarchical'        => false,
 			'public'              => true,

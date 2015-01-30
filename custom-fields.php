@@ -104,7 +104,7 @@ if(function_exists("register_field_group"))
 				'name' => 'leader',
 				'type' => 'relationship',
 				'instructions' => 'The leader of the bible study.',
-				'required' => 1,
+				'required' => 0,
 				'return_format' => 'id',
 				'post_type' => array (
 					0 => 'church-leaders',

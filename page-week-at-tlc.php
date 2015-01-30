@@ -15,7 +15,6 @@ define(NEWS_URL, 'http://delandlighthouse.com/news/');
 define(VERSE_URL, 'https://www.biblegateway.com/votd/get/?format=json');
 $start_date = getdate();
 $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -337,7 +336,7 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 				$ue_output = EM_Events::get( array (
 						'limit' => 5,
 						'category' => '-bible-studies',
-						'scope' => $scope
+						'scope' => $ue_scope
 					)
 				);
 
@@ -358,15 +357,15 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 								<tr>
 									<td class="ccollapse100" style="width:100px;font-size:24px;font-weight:200;">
 										<?php 
-											$start_date = new DateTime($item->event_start_date);
-											echo '<p class="event"><span class="month">' . $start_date->format('M') . '</span>  <span class="date">'. $start_date->format('d') . '</span></p>';
+											$ue_start_date = new DateTime($item->event_start_date);
+											echo '<p class="event"><span class="month">' . $ue_start_date->format('M') . '</span>  <span class="date">'. $ue_start_date->format('d') . '</span></p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:100px;font-size:14px;font-weight:200;">
 										<?php
-											$start_time = new DateTime($item->event_start_time);
-											$end_time = new DateTime($item->event_end_time);
-											echo '<p class="event">' . $start_time->format('h:i A') . ' - ' . $end_time->format('h:i A') . '</p>';
+											$ue_start_time = new DateTime($item->event_start_time);
+											$ue_end_time = new DateTime($item->event_end_time);
+											echo '<p class="event">' . $ue_start_time->format('h:i A') . ' - ' . $ue_end_time->format('h:i A') . '</p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:450px;font-size:24px;font-weight:200;">
@@ -393,7 +392,7 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 				$bs_output = EM_Events::get( array ( 
 					'limit' => 5, 
 					'category' => 'bible-studies', 
-					'scope' => $scope 
+					'scope' => $bs_scope 
 					) 
 				);
 
@@ -413,15 +412,15 @@ $end_date = getdate(mktime(0, 0, 0, date('m'), date('d') + 6, date('Y')));
 								<tr>
 									<td class="ccollapse100" style="width:100px;font-size:24px;font-weight:200;">
 										<?php 
-											$start_date = new DateTime($item->event_start_date);
-											echo '<p class="event"><span class="month">' . $start_date->format('M') . '</span>  <span class="date">'. $start_date->format('d') . '</span></p>';
+											$bs_start_date = new DateTime($item->event_start_date);
+											echo '<p class="event"><span class="month">' . $bs_start_date->format('M') . '</span>  <span class="date">'. $bs_start_date->format('d') . '</span></p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:100px;font-size:14px;font-weight:200;">
 										<?php
-											$start_time = new DateTime($item->event_start_time);
-											$end_time = new DateTime($item->event_end_time);
-											echo '<p class="event">' . $start_time->format('h:i A') . ' - ' . $end_time->format('h:i A') . '</p>';
+											$bs_start_time = new DateTime($item->event_start_time);
+											$bs_end_time = new DateTime($item->event_end_time);
+											echo '<p class="event">' . $bs_start_time->format('h:i A') . ' - ' . $bs_end_time->format('h:i A') . '</p>';
 										?>
 									</td>
 									<td class="ccollapse100" style="width:450px;font-size:24px;font-weight:200;">
