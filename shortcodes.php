@@ -95,7 +95,7 @@ if ( ! function_exists('sc_slideshow') ) {
 }
 
 function sc_lead($attr, $content='') {
-	return '<p class="lead">' . $content . '</p>';
+	return '<p class="story-lead">' . $content . '</p>';
 }
 
 add_shortcode('lead', 'sc_lead');

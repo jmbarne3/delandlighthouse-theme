@@ -40,6 +40,12 @@ if ( 2 > $paged ) {
 			</div>
 		</div>
 	</div>
+	<!-- <div class="clearfix"></div>
+	<a href="/shift-happens/">
+		<div class="container-wide">
+			<img class="aligncenter wp-image-3171 size-full" src="http://delandlighthouse.com/wp-content/uploads/2015/01/Lighthouse-Shift-Happens-2015.png" alt="" height="1000" width="3000">
+		</div>
+	</a> -->
 	<?php
 	// Display home page top widgetized area
 	if ( is_active_sidebar( 'home-page-top-area' ) ) {

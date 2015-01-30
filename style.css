@@ -752,9 +752,9 @@ a.carousel-control:hover {
   margin-bottom: 0;
 }
 
-p.lead { font-size: 20px; line-height: 28px; margin-bottom: 30px; }
-p.lead::first-letter { display: block; float: left; margin: 8px 8px 0 0; font-size: 60px; line-height: 36px; }
-p.lead:first-letter { display: block; float: left; margin: 8px 8px 0 0; font-size: 60px; line-height: 36px; }
+p.story-lead { font-size: 20px; line-height: 28px; margin-bottom: 30px; }
+p.story-lead::first-letter { display: block; float: left; margin: 8px 8px 0 0; font-size: 60px; line-height: 36px; }
+p.story-lead:first-letter { display: block; float: left; margin: 8px 8px 0 0; font-size: 60px; line-height: 36px; }
 
 .spacer {
   min-height: 30px;
