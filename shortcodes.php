@@ -93,6 +93,13 @@ if ( ! function_exists('sc_slideshow') ) {
 	add_shortcode('slideshow', 'sc_slideshow');
 
 }
+
+function sc_lead($attr, $content='') {
+	return '<p class="lead">' . $content . '</p>';
+}
+
+add_shortcode('lead', 'sc_lead');
+
 /**
  * Wrap arbitrary text in <blockquote>
  **/
@@ -149,12 +156,25 @@ function sc_callout($attr, $content) {
 	$bgcolor = $attr['background'] ? $attr['background'] : '#f0f0f0';
 	$content = do_shortcode($content);
 	// Close out our existing .span, .row and .container
-	$html .= '<div class="container-wide callout" style="background-color: '.$bgcolor.';">';
-	$html .= '<div class="container"><div class="row content-wrap"><div class="span10 offset1 callout-inner">';
-	$html .= $content;
 	$html .= '</div></div></div></div>';
+	$html .= '<div class="container-wide callout" style="background-color: '.$bgcolor.';">';
+	$html .= '<div class="container"><div class="row"><div class="col-md-12 callout-inner"><div class="entry-content description clearfix">';
+	$html .= $content;
+	$html .= '</div></div></div></div></div>';
+	$html .= '<div class="container"><div class="row"><div class="col-md-12"><div class="entry-content description clearfix">';
 	return $html;
 }
 add_shortcode('callout', 'sc_callout');
+
+function sc_wide_image($attr, $content) {
+	$content = do_shortcode($content);
+	$html .= '</div></div></div></div>';
+	$html .= '<div class="container-wide wide-image">';
+	$html .= $content;
+	$html .= '</div>';
+	$html .= '<div class="container"><div class="row"><div class="col-md-12"><div class="entry-content description clearfix">';
+	return $html;
+}
+add_shortcode('wide-image', 'sc_wide_image');
 
 ?>

@@ -32,11 +32,6 @@
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 <!--[if IE]><script src="<?php echo BAVOTASAN_THEME_URL; ?>/library/js/html5.js"></script><![endif]-->
 <?php wp_head(); ?>
-<?php if ($post->post_name == 'history') {?>
-<link rel="stylesheet" type="text/css" href="http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css">
-<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js"></script>
-<script type="text/javascript" src="http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js"></script>
-<?php } ?>
 </head>
 <?php
 $bavotasan_theme_options = bavotasan_theme_options();
@@ -69,15 +64,15 @@ $space_class = '';
 					?>
 				</div>
 			</nav><!-- #site-navigation -->
-			<?php if ($post->post_name == 'history' || $post->post_name == 'world-missions-map') { } else { ?>
+			<?php if ( $post->post_name == 'history' || $post->post_name == 'world-missions-map' || basename(get_page_template()) == 'noheader.php' ) : ?>
+				<div class="spacer"></div>
+			<?php else : ?>
 			 <div class="title-card-wrapper">
-				
                 <div class="title-card">
     				<div id="site-meta">
     					<h1 id="site-title">
     						<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
     					</h1>
-
     					<?php if ( $bavotasan_theme_options['header_icon'] ) { ?>
     					<i class="fa <?php echo $bavotasan_theme_options['header_icon']; ?>"></i>
     					<?php } else {
@@ -90,15 +85,12 @@ $space_class = '';
 
     					<a href="#" id="more-site" class="btn btn-default btn-lg"><?php _e( 'Our Vision', 'arcade' ); ?></a>
     				</div>
-
     				<?php
-    				// Header image section
-    				bavotasan_header_images();
+    				    bavotasan_header_images();
     				?>
 				</div>
 			</div>
-
-<?php } ?>
+			<?php endif; //if history ?>
 		</header>
 		<?php } ?>
 		<main>
