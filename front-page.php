@@ -23,7 +23,7 @@ if ( 2 > $paged ) {
 			<div class="row">
 				<div class="col-md-12">
 					<div class="home-jumbotron jumbotron">
-						<h1><?php echo apply_filters( 'the_title', html_entity_decode( $bavotasan_theme_options['jumbo_headline_title'] ) ); ?></h1>
+						<h2 class="h1"><?php echo apply_filters( 'the_title', html_entity_decode( $bavotasan_theme_options['jumbo_headline_title'] ) ); ?></h2>
 						<p class="lead"><?php echo wp_kses_post( html_entity_decode( $bavotasan_theme_options['jumbo_headline_text'] ) ); ?></p>
 					</div>
 				</div>

@@ -73,9 +73,15 @@ $space_class = '';
 			 <div class="title-card-wrapper">
                 <div class="title-card">
     				<div id="site-meta">
+    					<?php if (is_front_page()) : ?>
     					<h1 id="site-title">
     						<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
     					</h1>
+    					<?php else : ?>
+    					<p id="site-title">
+    						<a href="<?php echo esc_url( home_url() ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+    					</p>
+    					<?php endif; ?>
     					<?php if ( $bavotasan_theme_options['header_icon'] ) { ?>
     					<i class="fa <?php echo $bavotasan_theme_options['header_icon']; ?>"></i>
     					<?php } else {
