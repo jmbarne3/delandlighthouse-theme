@@ -177,4 +177,29 @@ function sc_wide_image_top($attr, $content) {
 }
 add_shortcode('wide-image-top', 'sc_wide_image_top');
 
+function sc_list_bible_studies($attr, $content) {
+	$cats = $attr["categories"];
+
+	$args = array(
+		'post_type' => 'bible-studies',
+		'posts_per_page' => -1,
+		'category_name' => "'" . $cats . "'"
+	);
+
+	$posts = get_posts($args);
+	$retval = "";
+
+	foreach ($posts as $post) {
+		$retval .= '<h3 class="bible-studies">';
+		$retval .= '<a href="' . get_permalink($post->ID) . '" rel="bookmark" title="' . $post->post_title . '">';
+		$retval .= $post->post_title . '</a></h3>';
+		$retval .= '<p>' . $post->post_excerpt . '</p>';
+	}
+
+	return $retval;
+
+}
+
+add_shortcode('list-bible-studies', 'sc_list_bible_studies');
+
 ?>

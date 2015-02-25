@@ -24,20 +24,23 @@ get_header(); ?>
 						<h1 class="entry-title">
 							Bible Studies
 						</h1><!-- .page-title -->
+						<?php
+							$catId = get_cat_id('Bible Studies');
+							$cat_args=array(
+								'parent' => $catId,
+								'orderby' => '',
+								'order' => 'desc'
+		   						);
+							$categories=get_categories($cat_args);
+						?>
 						<ul class="nav nav-pills">
-							<li><a href="#sunday-school">Sunday School</a></li>
-							<li><a href="#men-discipleship">Men's Discipleship</a></li>
-							<li><a href="#women-discipleship">Women's Discipleship</a></li>
+							<?php foreach ($categories as $cat) {
+								echo '<li><a href="#' . $cat->slug . '">' . $cat->name . '</a></li>';
+							} ?>
 						</ul>
 					</header><!-- #archive-header -->
 
 					<?php
-					$cat_args=array(
-						'parent' => '21',
-						'orderby' => 'id',
-						'order' => 'desc'
-   						);
-					$categories=get_categories($cat_args);
   						foreach($categories as $category) { 
     							$args=array(
 								'post_type' => 'bible-studies',
@@ -49,8 +52,8 @@ get_header(); ?>
 								echo  '<a name="' . $category->slug .'"></a><div class="archive-subsection"><h2>' . $category->name . '</h2></div>';
         							foreach($posts as $post) {
 		          						setup_postdata($post); ?>
-          								<h3 class="bible-studies"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
-									<p><?php the_excerpt(); ?></p>
+          								<div class="bible-study-archive"><h3 class="bible-studies"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+										<p><?php the_excerpt(); ?></p></div>
           								<?php
         							} // foreach($posts
 		      					} // if ($posts
