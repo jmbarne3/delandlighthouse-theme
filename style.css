@@ -327,6 +327,10 @@ footer {
   border-radius: 0.45em;
 }
 
+.bible-study-sidebar h3 {
+  margin-top: 0;
+}
+
 .bible-study-sidebar a {
   color: #282828;
 }
@@ -376,10 +380,6 @@ top: 0;
 left: 0;
 width: 100%;
 height: 100%;
-}
-
-h2.widgettitle {
-  margin-top: 0;
 }
 
 .img-rounded {
