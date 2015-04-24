@@ -75,7 +75,7 @@ get_header();
 								<h3 class='first'>Ministry Leader</h3><p><a href='<?php echo $leader[0]->guid; ?>'><?php echo $leader[0]->post_title; ?></a></p><?php
 							} else { ?>
 								<h3 class='first'>Ministry Leaders</h3>
-							<?php	for($i = 0; $i < $leaders.count(); $i++) {
+							<?php	for($i = 0; $i < count( $leaders ); $i++) {
 									?> <p><a href='<?php echo $leader[$i]->guid; ?>'><?php echo $leader[$i]->post_title; ?></a></p> <?php
 								}
 							}
