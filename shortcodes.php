@@ -60,7 +60,8 @@ if ( ! function_exists('sc_slideshow') ) {
 					</ol>
 					<div class="carousel-inner" role="listbox">
 					<?php foreach ($slides as $key=>$slide) { 
-						$slide_image = get_field('slide_image', $slide->ID)['sizes']['large'];
+						$slide_image_sizes = get_field('slide_image', $slide->ID);
+						$slide_image = $slide_image_sizes['sizes']['large'];
 						$alt_text = get_field('alt_text', $slide->ID);
 						$href = get_field('slide_link', $slide->ID);
 						$caption = get_field('caption_html', $slide->ID);
