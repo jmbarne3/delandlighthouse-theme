@@ -784,22 +784,29 @@ p.story-lead:first-letter { display: block; float: left; margin: 8px 8px 0 0; fo
   }
 }
 
-.img-skew-left {
+.img-skew-left,
+.img-skew-right {
   padding: 10px;
   border-radius: 5px;
   background: rgba(240,230,220, .7);
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+.img-skew-left {
   -ms-transform: rotate(-2deg);
   -webkit-transform: rotate(-2deg);
   -moz-transform: rotate(-2deg);
   transform: rotate(-2deg);
 }
 
+@media (max-width: 768px) {
+  .img-skew-left,
+  .img-skew-right {
+    margin-bottom: 25px;
+  }
+}
+
 .img-skew-right {
-  padding: 10px;
-  border-radius: 5px;
-  background: rgba(240,230,220, .7);
-  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
   -ms-transform: rotate(5deg);
   -webkit-transform: rotate(5deg);
   -moz-transform: rotate(5deg);
