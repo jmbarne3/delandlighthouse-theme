@@ -789,6 +789,9 @@ p.story-lead:first-letter { display: block; float: left; margin: 8px 8px 0 0; fo
   border-radius: 5px;
   background: rgba(240,230,220, .7);
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  -ms-transform: rotate(-2deg);
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
   transform: rotate(-2deg);
 }
 
@@ -797,27 +800,10 @@ p.story-lead:first-letter { display: block; float: left; margin: 8px 8px 0 0; fo
   border-radius: 5px;
   background: rgba(240,230,220, .7);
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  -ms-transform: rotate(5deg);
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
   transform: rotate(5deg);
-}
-
-.img-skew-left.parallax {
-  position: absolute;
-  top: 50%;
-  left: 75%;
-  transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(-2deg);
-}
-
-.img-skew-right.parallax {
-  position: absolute;
-  top:50%;
-  left:35%;
-  transform: translateZ(.75px) scale(.6) translateX(-104%) translateY(-40%) rotate(5deg);
-}
-
-.img-parallax {
-  position: absolute;
-  top: 50%;
-  left: 35%;
 }
 
 
