@@ -75,7 +75,7 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 									);
 
 									$query = new WP_Query($args); ?>
-									<ul>
+									<ul class="announcement-widget">
 									<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
 										<li class="announcement-item"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 									<?php endwhile; else : endif; ?>		
