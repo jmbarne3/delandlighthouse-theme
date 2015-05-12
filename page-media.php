@@ -68,6 +68,8 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 									$args = array(
 										'post_type' => 'podcast',
 										'post_status' => 'publish',
+										'orderby' => 'publish_date',
+										'order' => 'DESC',
 										'series' => 'Sermons',
 										'posts_per_page' => 5
 									);
