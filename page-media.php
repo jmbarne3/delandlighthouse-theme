@@ -11,12 +11,12 @@
  */
 get_header();
 wp_enqueue_style('flipclock-style', get_stylesheet_directory_uri() . '/flipclock.css');
-wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flipclock.min.js');
+wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flipclock.min.js', null, null, true);
 ?>
 
 	<div class="container">
 		<div class="row">
-			<div id="primary" <?php bavotasan_primary_attr(); ?>>
+			<div id="primary">
 				<?php
 				while ( have_posts() ) : the_post();
 					?>

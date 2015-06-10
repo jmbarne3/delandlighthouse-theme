@@ -10,9 +10,9 @@
  * @since 1.0.0
  */
 
-wp_enqueue_script('google-map-js', '//maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false&v=3.exp');
-wp_enqueue_script('campus-map-js', get_stylesheet_directory_uri() . '/js/campus-map.js');
-wp_enqueue_script('campus-map-labels-js', get_stylesheet_directory_uri() . '/js/maplabel-compiled.js');
+wp_enqueue_script('google-map-js', '//maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false&v=3.exp', null, null, true);
+wp_enqueue_script('campus-map-js', get_stylesheet_directory_uri() . '/js/campus-map.js', null, null, true);
+wp_enqueue_script('campus-map-labels-js', get_stylesheet_directory_uri() . '/js/maplabel-compiled.js', null, null, true);
 
 if (isset($_GET['json'])) {
 	$category = $_GET['category'];
@@ -44,7 +44,7 @@ if (isset($_GET['json'])) {
 ?>
 	<div class="container">
 		<div class="row">
-			<div id="primary" <?php bavotasan_primary_attr(); ?>>
+			<div id="primary">
 				<?php
 				while ( have_posts() ) : the_post();
 					?>

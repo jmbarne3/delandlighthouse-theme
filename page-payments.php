@@ -65,7 +65,7 @@ get_header();
 ?>
 	<div class="container">
 		<div class="row">
-			<div id="primary" <?php bavotasan_primary_attr(); ?>>
+			<div id="primary">
 				<h1>Tithes and Offerings</h1>
 				<div class="col-md-12">
 					<form METHOD="POST" ACTION="<?php the_permalink(); ?>">

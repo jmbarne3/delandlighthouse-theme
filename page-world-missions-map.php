@@ -39,8 +39,8 @@ if (isset($_GET['json'])) {
 
 } else {
 	get_header();
-	wp_enqueue_script('google-map-js', '//maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false');
-	wp_enqueue_script('world-missions-js', get_stylesheet_directory_uri() . '/js/world-missions.js');
+	wp_enqueue_script('google-map-js', '//maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false', null, null, true);
+	wp_enqueue_script('world-missions-js', get_stylesheet_directory_uri() . '/js/world-missions.js', null, null, true);
 }
 ?>
 	<div id="missions-map"></div>

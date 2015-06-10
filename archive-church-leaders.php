@@ -13,7 +13,7 @@
  * @since 1.0.0
  */
 get_header();
-wp_enqueue_script('church-leader-js', get_stylesheet_directory_uri() . '/js/church-leaders.js');
+wp_enqueue_script('church-leader-js', get_stylesheet_directory_uri() . '/js/church-leaders.js', null, null, true);
  ?>
 
 	<div class="container">

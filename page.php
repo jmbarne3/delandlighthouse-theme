@@ -14,7 +14,7 @@ get_header();
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="container">
 			<div class="row">
-				<div id="primary" <?php bavotasan_primary_attr(); ?>>
+				<div id="primary">
 					<?php
 					while ( have_posts() ) : the_post();
 						?>

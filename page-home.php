@@ -14,7 +14,7 @@ get_header();
 
 	<div class="container">
 		<div class="row">
-			<div id="primary" <?php bavotasan_primary_attr(); ?>>
+			<div id="primary">
 				
 			</div>
 			<?php //get_sidebar(); ?>

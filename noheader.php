@@ -11,8 +11,8 @@
  * @since 1.0.0
  */
 get_header();
-wp_enqueue_script('parallax-min-js', get_stylesheet_directory_uri() . '/js/parallax.min.js');
-wp_enqueue_script('vbs-js', get_stylesheet_directory_uri() . '/js/vbs.js');
+wp_enqueue_script('parallax-min-js', get_stylesheet_directory_uri() . '/js/parallax.min.js', null, null, true);
+wp_enqueue_script('vbs-js', get_stylesheet_directory_uri() . '/js/vbs.js', null, null, true);
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

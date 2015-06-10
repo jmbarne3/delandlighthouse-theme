@@ -10,14 +10,14 @@
  * @since 1.0.0
  */
 get_header();
-wp_enqueue_script('bootstrap-carousel', get_stylesheet_directory_uri() . '/js/bootstrap-carousel.js');
-wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js');
-wp_enqueue_script('masonry', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js');
-wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imagesloaded.pkgd.min.js');
+wp_enqueue_script('bootstrap-carousel', get_stylesheet_directory_uri() . '/js/bootstrap-carousel.js', null, null, true);
+wp_enqueue_script('news-js', get_stylesheet_directory_uri() . '/js/news.js', null, null, true);
+wp_enqueue_script('masonry', get_stylesheet_directory_uri() . '/js/masonry.pkgd.min.js', null, null, true);
+wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imagesloaded.pkgd.min.js', null, null, true);
 ?>
 
 	<div class="container">
-			<div id="primary" <?php bavotasan_primary_attr(); ?>>
+			<div id="primary">
 				<?php
 				while ( have_posts() ) : the_post();
 					?>
