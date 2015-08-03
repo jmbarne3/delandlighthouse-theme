@@ -24,7 +24,7 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 						<h1 class="entry-title"><?php the_title(); ?></h1>
 
 					    <div class="entry-content description clearfix">
-						<div class="col-md-9">
+						<div class="col-md-8 col-md-offset-2">
 							<?php 
 							if (date("l") == "Sunday" && (int)date('H', time()) >= 9 && (int)date('H', time()) <= 13) { ?>
 							<div id="ezv-stream-38db3aed920cf82ab059bfccbd02be6a"></div><script type="text/javascript" src="http://d15vbg8nyw71nw.cloudfront.net/jw.player/jwplayer.js"></script><script type="text/javascript" src="http://d3sporhxbkob1v.cloudfront.net/tlconfire/embed/live/tlconfire/tlconfire/embed.js"> </script>
@@ -37,8 +37,12 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 									}
 							?>
 							<div id="stream-div" style="display: none;"><div id="ezv-stream-38db3aed920cf82ab059bfccbd02be6a"></div></div><script type="text/javascript" src="http://d15vbg8nyw71nw.cloudfront.net/jw.player/jwplayer.js"></script><script type="text/javascript" src="http://d3sporhxbkob1v.cloudfront.net/tlconfire/embed/live/tlconfire/tlconfire/embed.js"> </script>
-
-							<h3>Next Live Stream</h3>
+							<div class="archives">
+								<h2>Sermon Archive</h2>
+								<p>Need to catch up on a sermon you've missed? Use the playlist button below to browse past sermons.</p>
+								<iframe width="560" height="315" src="https://www.youtube.com/embed/?list=PLOq9nTVcJv7CLEc2oiY0uy-r8DCkT0gOK" frameborder="0" allowfullscreen></iframe>
+							</div>
+							<h2>Next Live Stream</h2>
 							<div id="stream-clock"></div>
 							<script type="text/javascript">
 								jQuery(document).ready( function() {
@@ -59,29 +63,6 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 							</script>
 							<p>Our live stream is available Sunday's starting at 9:00 am for the Hour of Power service and continues at 10:30 am for the Celebration Service. Please join us then!</p>
 							<?php } ?>
-						</div>
-						<div class="col-md-3">
-							<div class="blue-box">
-								<h3>Recent Sermons</h3>
-								<?php 
-
-									$args = array(
-										'post_type' => 'podcast',
-										'post_status' => 'publish',
-										'orderby' => 'publish_date',
-										'order' => 'DESC',
-										'series' => 'Sermons',
-										'posts_per_page' => 5
-									);
-
-									$query = new WP_Query($args); ?>
-									<ul class="announcement-widget">
-									<?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-										<li class="announcement-item"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-									<?php endwhile; else : endif; ?>		
-									<li class="announcement-item"><a href="/podcast/">See All Sermons</a></li>		
-									</ul>
-							</div>
 						</div>
 					    </div><!-- .entry-content -->
 
