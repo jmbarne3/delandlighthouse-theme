@@ -168,13 +168,33 @@ function sc_callout($attr, $content) {
 add_shortcode('callout', 'sc_callout');
 
 function sc_wide_image_top($attr, $content) {
-	$content = do_shortcode($content);
-	$html .= '</div></div></div></div>';
-	$html .= '<div class="container-wide wide-image">';
-	$html .= $content;
-	$html .= '</div>';
-	$html .= '<div class="container"><div class="row"><div class="col-md-12"><div class="entry-content description clearfix">';
-	return $html;
+	$attr = shortcode_atts( array(
+		'src' => null,
+		'height' => 450
+		), $attr
+	);
+
+	ob_start();
+
+	if ( $attr['src'] ) : ?>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container-wide wide-image" style="background: url(<?php echo $attr['src']; ?>); background-size: cover; width: 100%; height: <?php echo $attr['height']; ?>px;">
+			<?php echo do_shortcode($content) ?>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="entry-content description clearfix">
+	<?php else: ?>
+		<?php do_shortcode($content); ?>
+	<?php endif; ?>
+	<?php
+	return ob_get_clean();
+
 }
 add_shortcode('wide-image-top', 'sc_wide_image_top');
 
