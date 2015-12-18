@@ -52,7 +52,7 @@ if (isset($_GET['json'])) {
 
 	echo json_encode($to_json);
 
-	return;
+	exit;
 
 	} else { get_header();
 		wp_enqueue_style('timeline-css', 'http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css');
@@ -68,7 +68,7 @@ if (isset($_GET['json'])) {
 						type: 'timeline',
 						width: window.innerWidth,
 						height: window.innerHeight,
-						source: '//delandlighthouse.com/about/history/?json=true',
+						source: '//delandlighthouse.com/history/?json=true',
 						embed_id: 'timeline'
 					});
 				};
