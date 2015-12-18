@@ -94,7 +94,7 @@ wp_enqueue_script('imagesLoaded', get_stylesheet_directory_uri() . '/js/imageslo
 									<div class="col-md-12">
 										<h3>Bible Studies This Week</h3>
 										<div class="events-space">
-											<?php echo do_shortcode('[events_list limit="0" scope="seven-days" category=21]<div class="col-xs-4 col-sm-2 col-md-4 col-lg-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-8 col-sm-10 col-md-8 col-lg-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]'); ?>
+											<?php echo do_shortcode('[events_list limit="0" scope="seven-days" category=81]<div class="col-xs-4 col-sm-2 col-md-4 col-lg-3"><p class="event-date-day">#d</p><p class="event-date-month">#M</p></div><div class="col-xs-8 col-sm-10 col-md-8 col-lg-9"><h5 class="event-title">#_EVENTLINK</h5><p class="event-date-times"><b>#l - #_EVENTTIMES</b></p></div><div class="clearfix"></div><hr />[/events_list]'); ?>
 										<h5 class="event-title" style="text-align:center"><a href="/events">See All Events</a></h5>
 										</div>
 									</div>
