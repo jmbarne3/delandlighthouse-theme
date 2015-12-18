@@ -170,6 +170,7 @@ add_shortcode('callout', 'sc_callout');
 function sc_wide_image_top($attr, $content) {
 	$attr = shortcode_atts( array(
 		'src' => null,
+		'use_div' => True,
 		'height' => 450
 		), $attr
 	);
@@ -182,9 +183,15 @@ function sc_wide_image_top($attr, $content) {
 				</div>
 			</div>
 		</div>
+		<?php if ( $attr['_use_div'] ) : ?>
 		<div class="container-wide wide-image" style="background: url(<?php echo $attr['src']; ?>); background-size: cover; width: 100%; height: <?php echo $attr['height']; ?>px;">
 			<?php echo do_shortcode($content) ?>
 		</div>
+		<?php else : ?>
+		<div class="container-wide">
+			<img src="<?php echo $attr['src']; ?>" class="wide-image img-responsive">
+		</div>
+		<?php endif; ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

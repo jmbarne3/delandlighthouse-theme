@@ -778,12 +778,12 @@ p.story-lead:first-letter { display: block; float: left; margin: 8px 8px 0 0; fo
 }
 
 .wide-image {
-  margin-top: -97px;
+  margin-top: -78px;
 }
 
 @media (max-width: 786px) {
   .wide-image {
-    margin-top: -100px;
+    margin-top: -80px;
   }
 }
 
