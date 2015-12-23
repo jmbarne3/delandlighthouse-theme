@@ -9,11 +9,7 @@
 ?>
 		<?php
 		// Display a thumbnail if one exists and not on single post
-		bavotasan_display_post_thumbnail();
-
-		if ( ! get_field('remove_header' ) ) :
-	    	get_template_part( 'content', 'header' );
-		endif; ?>
+		bavotasan_display_post_thumbnail(); ?>
 
 	    <div class="entry-content description clearfix">
 		    <?php
