@@ -34,8 +34,9 @@ get_header();
 			<?php 	
 				$leader = get_field('leader', $post->ID);
 				$links = get_field('additional_links', $post->ID);
+				$announcements = get_field('announcement_categories', $post->ID);
 
-				if (empty($leader) && empty($links)) {
+				if (empty($leader) && empty($links) && empty($announcements)) {
 			?>
 				<div class='col-lg-9'>
 			<?php } else { ?>
@@ -62,10 +63,6 @@ get_header();
 			<div class='col-lg-3 primary'>
 				
 				<?php 
-
-					$leader = get_field('leader', $post->ID);
-					$links = get_field('additional_links', $post->ID);
-					$announcements = get_field('announcement_categories', $post->ID);
 
 					if (!empty($leader) || !empty($links) || !empty($announcements)) {
 					?> <div class='blue-box'> <?php
