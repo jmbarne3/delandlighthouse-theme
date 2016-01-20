@@ -27,7 +27,7 @@ wp_enqueue_script('flipclock-script', get_stylesheet_directory_uri() . '/js/flip
 						<div class="col-md-8 col-md-offset-2">
 							<?php 
 							if (date("l") == "Sunday" && (int)date('H', time()) >= 9 && (int)date('H', time()) <= 13) { ?>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/QlhAtx5LcPI" frameborder="0" allowfullscreen></iframe>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/QlhAtx5LcPI?autoplay=1" frameborder="0" allowfullscreen></iframe>
 							<?php } else {
 									$seconds;
 									if (date("l") == "Sunday" && (int)date("H", time()) < 9) {
